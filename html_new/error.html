@@ -1,0 +1,35 @@
+<div>
+    <h2 id="error"></hw>
+</div>
+<script>
+    function getCurrentURL() {
+        return window.location.href;
+    }
+
+    function processError() {
+        debugger;
+        const url = getCurrentURL();
+        const data = url.split('?')[1];
+        const params = data.split('&');
+
+        const code = params[0].split('=')[1];
+        let rol = params[1].split('=')[1];
+        let user = params[2].split('=')[1];
+
+        if(user === 'false'){
+            user = 'no registrado';
+        }
+
+        if(rol){
+            rol = ' con rol '+rol;
+        }
+
+        jQuery('.single-title').text('Error '+code);
+        jQuery('#error').text('Usuario ' + user +  rol + ' no tiene privilegios para hacer la operación.');
+    }
+
+
+    jQuery(function () {
+        processError();
+    });
+</script>

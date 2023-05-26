@@ -1,0 +1,307 @@
+/* Tabla ejercicios */
+
+.table.table-striped.table-hover.tabla_ejercicios {
+  border: 4px solid black;
+  background-color: #D7D9DD;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  box-shadow: 0 1px 0 black;
+}
+
+.table.table-striped.table-hover.tabla_ejercicios td,
+.table.table-striped.table-hover.tabla_ejercicios th {
+  border: 1px solid;
+  padding: 3px 2px;
+  border: 3px solid #0e0e0e;
+}
+
+.table.table-striped.table-hover.tabla_ejercicios th {
+  background-color: black;
+}
+
+.table.table-striped.table-hover.tabla_ejercicios th {
+  color: white;
+}
+
+.table.table-striped.table-hover.tabla_ejercicios th.custom-bg-ejercicios {
+  background-color: #FF593D;
+  color:white;
+}
+
+
+/* Tabla patologías */
+
+.table.table-striped.table-hover.tabla_patologias {
+  border: 4px solid black;
+  background-color: #D7D9DD;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  box-shadow: 0 1px 0 black;
+}
+
+.table.table-striped.table-hover.tabla_patologias td,
+.table.table-striped.table-hover.tabla_patologias th {
+  border: 1px solid;
+  padding: 3px 2px;
+  border: 3px solid #0e0e0e;
+}
+
+.table.table-striped.table-hover.tabla_patologias th {
+  background-color: black;
+}
+
+.table.table-striped.table-hover.tabla_patologias th {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  table.blueTable th:nth-child(4),
+  table.blueTable td:nth-child(4) {
+    min-width: 25px;
+  }
+}
+
+/*table.blueTable {
+  border: 4px solid black;
+  background-color: white;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  box-shadow: 0 1px 0 black;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+  border: 3px solid #0e0e0e;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+table.blueTable th:nth-child(1),
+table.blueTable td:nth-child(1) {
+  width: 41px;
+}
+
+table.blueTable th:nth-child(2), 
+table.blueTable td:nth-child(2) {
+  width: 141px;
+}
+
+table.blueTable th:nth-child(3), 
+table.blueTable td:nth-child(3) {
+  width: 107px;
+}
+
+table.blueTable th:nth-child(4), 
+table.blueTable td:nth-child(4) {
+  width: 95px;
+}
+
+table.blueTable th:nth-child(5), 
+table.blueTable td:nth-child(5) {
+  width: 68px;
+}
+
+table.blueTable th:nth-child(6), 
+table.blueTable td:nth-child(6) {
+  width: 46px;
+}
+
+table.blueTable th:nth-child(7), 
+table.blueTable td:nth-child(7) {
+  width: 168px;
+}
+*/
+
+
+
+
+
+table.greenTable {
+  font-family: Georgia, serif;
+  border: 6px solid #24943A;
+  background-color: #D4EED1;
+  width: 100%;
+  text-align: center;
+}
+table.greenTable td, table.greenTable th {
+  border: 1px solid #24943A;
+  padding: 3px 2px;
+}
+table.greenTable tbody td {
+  font-size: 13px;
+}
+table.greenTable thead {
+  background: #24943A;
+  background: -moz-linear-gradient(top, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  background: -webkit-linear-gradient(top, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  background: linear-gradient(to bottom, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  border-bottom: 0px solid #444444;
+}
+table.greenTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #F0F0F0;
+  text-align: left;
+  border-left: 2px solid #24943A;
+}
+table.greenTable thead th:first-child {
+  border-left: none;
+}
+
+table.greenTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #F0F0F0;
+  background: #24943A;
+  background: -moz-linear-gradient(top, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  background: -webkit-linear-gradient(top, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  background: linear-gradient(to bottom, #5baf6b 0%, #3a9e4d 66%, #24943A 100%);
+  border-top: 1px solid #24943A;
+}
+table.greenTable tfoot td {
+  font-size: 13px;
+}
+table.greenTable tfoot .links {
+  text-align: right;
+}
+table.greenTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #24943A;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.fechas {
+  background-color: rgb(82, 82, 82);
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: none;
+  box-shadow: 0 0 4px #10386D, 0 0 8px #10386D;
+}
+
+#tablapatologias{
+  width: 50%;
+  margin-bottom: 50px;
+}
+#spinner{
+  width: 100px;
+  height: 70px;
+}
+
+.no-visible{
+  display: none; 
+  visibility: hidden;
+   opacity: 0;
+}
+
+.content-error{
+  color: red;
+  padding-bottom: 20px;
+}
+
+#menu-main-menu li:last-child {
+  display: none;
+}
+
+/*footer*/
+
+/*.sub-footer-color{
+  background-color: #111113;
+}*/
+
+.content-footer{
+  display: flex;
+  flex-direction: row;
+}
+
+.image{
+  width: 100px;
+}
+
+.content-link{
+  text-align: center;
+  padding-top: 23px !important;
+  width: 100%;
+  /* margin-left: 20px; */
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .sub-footer-color {
+    background-color: #10386D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sub-footer-color {
+    background-color: #10386D;
+  }
+}
+
+.sub-footer-color {
+  background-color: #10386D;
+}
+
+.sub-footer-color .text-center {
+  color: white;
+  padding: 10px 0;
+}
+
+
+
+

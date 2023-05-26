@@ -1,0 +1,617 @@
+<style>
+    .anchura-col {
+        white-space: nowrap; 
+        overflow: hidden;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3px;
+    }
+
+
+    .table.table-striped.table-hover.tabla-listausuarios {
+        border: 4px solid black;
+        background-color: #D7D9DD;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        box-shadow: 0 1px 0 black;
+    }
+
+    .table.table-striped.table-hover.tabla-listausuarios td,
+    .table.table-striped.table-hover.tabla-listausuarios th {
+        border: 1px solid;
+        padding: 3px 2px;
+        border: 3px solid #0e0e0e;
+    }
+
+    .table.table-striped.table-hover.tabla-listausuarios th {
+        background-color: black;
+    }
+
+    .table.table-striped.table-hover.tabla-listausuarios th {
+        color: white;
+    }
+
+    /* Tabla patologías */
+
+    .table.table-striped.table-hover.tabla-patologias {
+        border: 4px solid black;
+        background-color: #D7D9DD;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        box-shadow: 0 1px 0 black;
+    }
+
+    .table.table-striped.table-hover.tabla-patologias td,
+    .table.table-striped.table-hover.tabla-patologias th {
+        border: 1px solid;
+        padding: 3px 2px;
+        border: 3px solid #0e0e0e;
+    }
+
+    .table.table-striped.table-hover.tabla-patologias th {
+        background-color: black;
+    }
+
+    .table.table-striped.table-hover.tabla-patologias th {
+        color: white;
+    }
+
+    /* Tabla ejercicios */
+
+    .table.table-striped.table-hover.tabla-ejercicios {
+        border: 4px solid black;
+        background-color: #D7D9DD;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        box-shadow: 0 1px 0 black;
+    }
+
+    .table.table-striped.table-hover.tabla-ejercicios td,
+    .table.table-striped.table-hover.tabla-ejercicios th {
+        border: 1px solid;
+        padding: 3px 2px;
+        border: 3px solid #0e0e0e;
+    }
+
+    .table.table-striped.table-hover.tabla-ejercicios th {
+        background-color: black;
+    }
+
+    .table.table-striped.table-hover.tabla-ejercicios th {
+        color: white;
+    }
+
+    .table.table-striped.table-hover.tabla-ejercicios th.custom-bg {
+        background-color: #FF593D;
+        color:white;
+    }
+
+    #ejerEntrenador {
+        padding-top: 50px;
+    }
+
+    #content-select {
+        padding-top: 50px;
+    }
+
+    .content-button {
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    th.centrado {
+        text-align: center;
+    }
+
+    #bt-ejercicio-sist.wpforms-submit {
+        width: 200px; 
+    }
+
+    .botones-container {
+        display: flex;
+        gap: 10px; 
+        margin-bottom: 2px
+    }
+
+    .botones-container button {
+        flex: 1;
+    }
+
+
+    .centered-button {
+        text-align: center;
+    }
+
+    .centered-button button {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .col-editar{
+        width: 156px;
+        margin-bottom: 2px;
+    }
+
+    .wpforms-submit {
+        background-color: #0069D9;
+        border: 1px solid #291291;
+        box-shadow: 0 3px 0 #291291;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        width: 165px;
+    }
+
+    .wpforms-submit:hover {
+        background-color: #0069D9;
+        border: 1px solid #291291;
+        box-shadow: 0 2px 0 #291291;
+    }
+
+    .btn.btn-danger.wp-danger {
+        background-color: #C82333;
+        border: 1px solid #630a04;
+        box-shadow: 0 3px 0 #630a04;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .btn.btn-danger.wp-danger:hover {
+        background-color: #C82333;
+        border: 1px solid #630a04;
+        box-shadow: 0 2px 0 #630a04;
+    }
+    .bt-table {
+        width: 150px;
+    }
+    .sep-pag{
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+</style>
+
+<div id="load"></div>
+<div id="contenido"></div>
+<div id="ejerEntrenador"></div>
+<div id="message"></div>
+<div id="spinner"></div>
+<script>
+
+    function buscarEjercicios(usuario) {
+        debugger;
+        addSpinner('spinner');
+        const form_data = [];
+        form_data.push({ "name": "security", "value": ajax_nonce });
+        form_data.push({ "name": 'idUsuario', "value": usuario.id_usuario });
+        form_data.push({ "name": 'action', "value": 'action_buscarEjercicios' });
+
+        jQuery.ajax({
+            url: ajax_url, // Here goes our WordPress AJAX endpoint.
+            type: 'post',
+            data: form_data,
+            success: function (response) {
+                debugger;
+                if (!processAjaxActionError(response)) {
+                    removeSpinner('spinner');
+                    var data = JSON.parse(response);
+                    var html = '<div><h3>Rutina personalizada para: ' + usuario.user_nicename + '</h3></div>' +
+                        generateHtmlPatologiasEjercicios(data);
+
+                    jQuery('#ejerEntrenador').html(html);
+
+                    if (data.ejercicios) {
+                        data.ejercicios.forEach((ejer, index) => {
+
+                            jQuery('#bt-actualizar-' + index).click({ user: usuario, ejercicio: ejer, inputId: 'input-serie-' + index }, actualizarSerie);
+                            jQuery('#bt-borrar-' + index).click({ user: usuario, ejercicio: ejer }, eliminarEjercicio);
+                        });
+                    }
+                    jQuery('#bt-incluir-ejercicio').click({ user: usuario }, incluirEjercicio);
+                    jQuery('#bt-ejercicio-sist').click({ user: usuario }, ejerciciosPredefinidos);
+                }
+            },
+            fail: function (err) {
+                removeSpinner('spinner');
+                alert("There was an error: " + err);
+            }
+        });
+    }
+
+    function listaDeUsuarios(page) {
+        debugger;
+        addSpinner('load');
+        jQuery('#ejerEntrenador').html('');
+
+        const form_data = [];
+        form_data.push({ "name": "security", "value": ajax_nonce });
+        form_data.push({ "name": 'action', "value": 'action_usuariospaginados' });
+        form_data.push({ "name": 'page', "value": page });
+
+        jQuery.ajax({
+            url: ajax_url, // Here goes our WordPress AJAX endpoint.
+            type: 'post',
+            data: form_data,
+            success: function (response) {
+                debugger;
+                if (!processAjaxActionError(response)) {
+                    removeSpinner('load');
+                    var data = JSON.parse(response);
+                    jQuery('#contenido').data('total', data.total);
+
+                    jQuery('#loading').remove();
+                    var html = generateHtmlEntrenamiento(data);
+                    jQuery('#contenido').removeClass('ocultar');
+                    if (html !== '') {
+                        jQuery('#contenido').html(html);
+                        data.usuarios.forEach((usuario, index) => {
+                            debugger;
+
+                            jQuery('#bt-editar' + index).click({ user: usuario }, cargarDatosUsuario);
+                        })
+                        jQuery('#bt-back').click(back);
+                        jQuery('#bt-next').click({ total: data.total }, next);
+
+                    } else {
+                        jQuery('#contenido').text('No hay usuarios para mostrar.');
+                    }
+                }
+            },
+            fail: function (err) {
+                removeSpinner('spinner');
+                alert("There was an error: " + err);
+            }
+        });
+    }
+
+    function ejerciciosPredefinidos(event) {
+        debugger;
+        if (confirm("Los ejercicios serán asignados por el sistema teniendo en cuenta el objetivos y las patologías.")) {
+            addSpinner('spinner');
+
+            var user = event.data.user;
+            const form_data = [];
+            form_data.push({ "name": "security", "value": ajax_nonce });
+            form_data.push({ "name": 'action', "value": 'action_ejercicioPredefinido' });
+            form_data.push({ "name": 'idEntrenamiento', "value": user.id_entrenamiento });
+            form_data.push({ "name": 'idUsuario', "value": user.id_usuario });
+
+            jQuery.ajax({
+                url: ajax_url, // Here goes our WordPress AJAX endpoint.
+                type: 'post',
+                data: form_data,
+                success: function (response) {
+                    debugger;
+                    if (!processAjaxActionError(response)) {
+                        removeSpinner('spinner');
+                        var eventData = { data: { user: user } };
+                        cargarDatosUsuario(eventData);
+                        jQuery('#message').text('Los ejercicios serán asignados por el sistema teniendo en cuenta el objetivos y las patologías.');
+                        setTimeout(() => {
+                            jQuery('#message').text('');
+                        }, 2000);
+                    }
+                },
+                fail: function (err) {
+                    removeSpinner('spinner');
+                    alert("There was an error: " + err);
+                }
+            });
+        }
+    }
+
+    function incluirEjercicio(event) {
+        debugger;
+        addSpinner('spinner');
+
+        var user = event.data.user;
+        var idEjercicio = jQuery('#selEjer').val();
+
+        const form_data = [];
+        form_data.push({ "name": "security", "value": ajax_nonce });
+        form_data.push({ "name": 'action', "value": 'action_incluirEjercicio' });
+        form_data.push({ "name": 'idEjercicio', "value": idEjercicio });
+        form_data.push({ "name": 'idEntrenamiento', "value": user.id_entrenamiento });
+        form_data.push({ "name": 'idUsuario', "value": user.id_usuario });
+
+        jQuery.ajax({
+            url: ajax_url, // Here goes our WordPress AJAX endpoint.
+            type: 'post',
+            data: form_data,
+            success: function (response) {
+                debugger;
+                if (!processAjaxActionError(response)) {
+                    removeSpinner('spinner');
+                    var eventData = { data: { user: user } };
+                    cargarDatosUsuario(eventData);
+                    jQuery('#message').text('Ejercicio incluido con éxito.');
+                    setTimeout(() => {
+                        jQuery('#message').text('');
+                    }, 2000);
+                }
+            },
+            fail: function (err) {
+                removeSpinner('spinner');
+                alert("There was an error: " + err);
+            }
+        });
+    }
+
+    function actualizarSerie(event) {
+
+        debugger;
+        addSpinner('spinner');
+        var user = event.data.user;
+        var ejercicio = event.data.ejercicio;
+        var inputId = event.data.inputId;
+        var serie = jQuery('#' + inputId).val();
+
+        console.log(user);
+        console.log(ejercicio);
+        const form_data = [];
+        form_data.push({ "name": "security", "value": ajax_nonce });
+        form_data.push({ "name": 'idEjercicio', "value": ejercicio.id_ejercicio });
+        form_data.push({ "name": 'idUsuario', "value": user.id_usuario });
+        form_data.push({ "name": 'idEntrenamiento', "value": user.id_entrenamiento });
+        form_data.push({ "name": 'serie', "value": serie });
+        form_data.push({ "name": 'action', "value": 'action_actualizarSerie' });
+
+        jQuery.ajax({
+            url: ajax_url, // Here goes our WordPress AJAX endpoint.
+            type: 'post',
+            data: form_data,
+            success: function (response) {
+                debugger;
+                if (!processAjaxActionError(response)) {
+                    removeSpinner('spinner');
+                    jQuery('#message').text('Serie actualizada con éxito.');
+                    setTimeout(() => {
+                        jQuery('#message').text('');
+                    }, 2000);
+                }
+            },
+            fail: function (err) {
+                removeSpinner('spinner');
+                alert("There was an error: " + err);
+            }
+        });
+    }
+
+    function eliminarEjercicio(event) {
+
+        debugger;
+        addSpinner('spinner');
+        var user = event.data.user;
+        var ejercicio = event.data.ejercicio;
+        console.log(user);
+        console.log(ejercicio);
+        const form_data = [];
+        form_data.push({ "name": "security", "value": ajax_nonce });
+        form_data.push({ "name": 'idEjercicio', "value": ejercicio.id_ejercicio });
+        form_data.push({ "name": 'idEntrenamiento', "value": user.id_entrenamiento });
+        form_data.push({ "name": 'idUsuario', "value": user.id_usuario });
+        form_data.push({ "name": 'action', "value": 'action_borrarEjercicio' });
+
+        jQuery.ajax({
+            url: ajax_url, // Here goes our WordPress AJAX endpoint.
+            type: 'post',
+            data: form_data,
+            success: function (response) {
+                debugger;
+                if (!processAjaxActionError(response)) {
+                    removeSpinner('spinner');
+                    var eventData = { data: { user: user } };
+                    cargarDatosUsuario(eventData);
+                    jQuery('#message').text('Ejercicio eliminado con éxito.');
+                    setTimeout(() => {
+                        jQuery('#message').text('');
+                    }, 2000);
+                }
+            },
+            fail: function (err) {
+                removeSpinner('spinner');
+                alert("There was an error: " + err);
+            }
+        });
+    }
+
+    function cargarDatosUsuario(event) {
+        debugger;
+        var user = event.data.user;
+        console.log(user);
+        buscarEjercicios(user);
+    }
+
+    function back(event) {
+        debugger;
+        var page = jQuery('#contenido').data('page');
+        page--;
+        if (page >= 0) {
+            jQuery('#contenido').data('page', page);
+            listaDeUsuarios(page);
+        }
+    }
+
+    function next(event) {
+        debugger;
+        var total = event.data.total;
+        var page = jQuery('#contenido').data('page');
+        page++;
+        var numPage = total / 2;
+        if (page <= numPage) {
+            jQuery('#contenido').data('page', page);
+            listaDeUsuarios(page);
+        }
+    }
+
+    function generateHtmlEntrenamiento(data) {
+        var html = '';
+        var usuarios = '';
+        if (data.usuarios.length > 0) {
+            usuarios = '<table id="tablausuarios" class="table table-striped table-hover tabla-listausuarios">';
+            usuarios += '<tr>';
+            usuarios += '<th class="centrado anchura-col">#</th>';
+            usuarios += '<th class="centrado anchura-col">Nombre del usuario</th>';
+            usuarios += '<th class="centrado anchura-col">Fecha de inicio</th>';
+            usuarios += '<th class="centrado anchura-col">Fecha de fin</th>';
+            usuarios += '<th class="centrado anchura-col">Plan</th>';
+            usuarios += '<th class="centrado anchura-col">Edad</th>';
+            usuarios += '<th class="centrado anchura-col">Acción</th>';
+            usuarios += '</tr>';
+
+            data.usuarios.forEach((usuario, index) => {
+                usuarios += '<tr>';
+                usuarios += '<td class="text-center">' + (index + 1) + '</td>';
+                usuarios += '<td class="text-center">' + usuario.user_nicename + '</td>';
+                usuarios += '<td class="text-center">' + usuario.fechaInicio + '</td>';
+                usuarios += '<td class="text-center">' + usuario.fechaFin + '</td>';
+                usuarios += '<td class="text-center">' + usuario.plan + '</td>';
+                usuarios += '<td class="text-center">' + usuario.edad + '</td>';
+                usuarios += '<td class="col-editar"><div class="btn-container"><button class="btn btn-primary wpforms-submit" id="bt-editar' + index + '">Editar</button></div></td>';
+                usuarios += '</tr>';
+            });
+            usuarios += '</table>';
+
+            var page = parseInt(jQuery('#contenido').data('page'));
+            var dnext = '';
+            var dback = '';
+            var size = parseInt(jQuery('#contenido').data('size'));
+            if ((page + 1) === Math.ceil(data.total / size)) {
+                dnext = 'disabled="disabled"';
+            }
+
+            if (page === 0) {
+                dback = 'disabled="disabled"';
+            }
+
+            usuarios += '<div class="sep-pag">Página ' + (page + 1) + ' de ' + Math.ceil(data.total / size) + '</div>';
+
+            usuarios += '<div>';
+            usuarios += '<button ' + dback + ' class="btn btn-primary wpforms-submit" id="bt-back">Atrás</button>'
+            usuarios += '<button ' + dnext + ' class="btn btn-primary wpforms-submit" id="bt-next">Siguiente</button>'
+            usuarios += '</div>';
+        } else {
+            usuarios = 'No hay usuarios para mostrar.';
+        }
+
+        html += '<div>' + usuarios + '</div>';
+        return html;
+    }
+
+    function generateHtmlPatologiasEjercicios(data) {
+        var html = '';
+        if (data.plan) {
+            html = '<div class="fechas">';
+            html += '<p>Plan: ' + data.plan + '</p>';
+            html += '<p>Fecha de inicio del plan: ' + data.fechaInicio + '</p>';
+            html += '<p>Fecha de fin del plan: ' + data.fechaFin + '</p>';
+            html += '</div>';
+        } else {
+            html += '<div class="fechas">Su plan ha caducado. Compre un nuevo plan</div>';
+        }
+
+        var patologiasUsuario = '';
+        if (data.patologiaUsuario.length > 0) {
+            patologiasUsuario = '<table id="tablapatologias" class="table table-striped table-hover tabla-patologias">';
+            patologiasUsuario += '<tr>';
+            patologiasUsuario += '<th class="centrado">#</th>';
+            patologiasUsuario += '<th class="centrado">Patologías</th>';
+            patologiasUsuario += '</tr>';
+
+
+            data.patologiaUsuario.forEach((pat, index) => {
+                patologiasUsuario += '<tr>';
+                patologiasUsuario += '<td>' + (index + 1) + '</td>';
+                patologiasUsuario += '<td class="text-center">' + pat.patologia + '</td>';
+                patologiasUsuario += '</tr>';
+            });
+            patologiasUsuario += '</table>';
+        }
+
+        var ejercicios = '';
+        if (data.ejercicios && data.ejercicios.length > 0) {
+            ejercicios = '<table id="tablaejercicios" class="table table-striped table-hover tabla-ejercicios">';
+            ejercicios += '<tr>';
+            ejercicios += '<th colspan="5" class="centrado custom-bg">PROGRAMA DE ENTRENAMIENTO</th>';
+            ejercicios += '</tr>';
+            ejercicios += '<tr>';
+            ejercicios += '<th class="centrado">#</th>';
+            ejercicios += '<th class="centrado">Nombre del ejercicio</th>';
+            ejercicios += '<th class="centrado">Categoría</th>';
+            ejercicios += '<th class="centrado">Serie y repeticiones</th>';
+            ejercicios += '<th class="centrado">Acciones</th>';
+
+
+            data.ejercicios.forEach((ejer, index) => {
+                ejercicios += '<tr>';
+                ejercicios += '<td>' + (index + 1) + '</td>';
+                ejercicios += '<td class="text-center">' + ejer.nombreEjer + '</td>';
+                ejercicios += '<td class="text-center">' + ejer.nombreCategoria + '</td>';
+
+                debugger;
+                var serieYRep = ejer.entNumeroYRepeticiones;
+                if (serieYRep == null || serieYRep === '') {
+                    serieYRep = ejer.numeroYRepeticiones;
+                }
+                if (serieYRep == null) {
+                    serieYRep = '';
+                }
+
+                ejercicios += '<td class="text-center"><input id="input-serie-' + index + '" type="text" value="' + serieYRep + '"></td>';
+                ejercicios += '<td class="acciones-col">';
+                ejercicios += '<div class="botones-container">';
+                ejercicios += '<button class="bt-table btn btn-danger wp-danger" id="bt-borrar-' + index + '">Borrar</button>';
+                ejercicios += '<button class="bt-table  btn btn-primary wpforms-submit" id="bt-actualizar-' + index + '">Actualizar</button>';
+                ejercicios += '</div>';
+                ejercicios += '</td>';
+                ejercicios += '</tr>';
+            });
+            ejercicios += '</table>';
+        } else {
+            ejercicios = 'No hay ejercicios para mostrar.';
+        }
+
+        debugger;
+        var ejerciciosEntrenador = '<div id="content-select"><select id="selEjer">';
+        data.ejerciciosEntrenador.forEach((ejer, index) => {
+            ejerciciosEntrenador += '<option value="' + ejer.id_ejercicio + '">' + ejer.nombreEjer + '</option>';
+        });
+        ejerciciosEntrenador += '</select></div>';
+
+        ejerciciosEntrenador +=
+            '<div class="content-button">'
+            + '<button class="btn btn-primary wpforms-submit" id="bt-incluir-ejercicio">Incluir</button>'
+            + '</div>';
+
+        var ejerciciosPredefinidos =
+            '<div class="content-button">'
+            + '<button class="btn btn-primary wpforms-submit" id="bt-ejercicio-sist">Ejercicios predefinidos</button>'
+            + '</div>';
+
+        html += '<div>' + patologiasUsuario + '</div>';
+        html += '<div>' + ejercicios + '</div>';
+        html += ejerciciosPredefinidos
+        html += ejerciciosEntrenador;
+        return html;
+    }
+
+    jQuery(function () {
+        jQuery('#contenido').data('page', 0);
+        jQuery('#contenido').data('size', 5);
+        listaDeUsuarios(0);
+    });
+</script>

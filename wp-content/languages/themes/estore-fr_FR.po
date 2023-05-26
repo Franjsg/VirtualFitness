@@ -1,0 +1,909 @@
+# Translation of Themes - eStore in French (France)
+# This file is distributed under the same license as the Themes - eStore package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-23 16:14:19+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: fr\n"
+"Project-Id-Version: Themes - eStore\n"
+
+#. Theme Name of the theme
+#: inc/admin/class-estore-theme-review-notice.php:77
+#: inc/admin/class-estore-welcome-notice.php:62
+msgid "eStore"
+msgstr "eStore"
+
+#: inc/customizer.php:529
+msgid "Grid View"
+msgstr "Vue en grille"
+
+#: inc/customizer.php:528
+msgid "List View"
+msgstr "Vue en liste"
+
+#: inc/customizer.php:524
+msgid "Choose the layout style for archive pages."
+msgstr "Choisissez le style de mise en page pour les pages archives."
+
+#: inc/customizer.php:507
+msgid "Blog Layout"
+msgstr "Mise en page de blog"
+
+#: navigation.php:42
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: navigation.php:41
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: navigation.php:22 navigation.php:34
+msgid "Next &rarr;"
+msgstr "Suivant &rarr;"
+
+#: navigation.php:21 navigation.php:33
+msgid "&larr; Previous"
+msgstr "&larr; Précédent"
+
+#: inc/admin/class-estore-dashboard.php:104
+msgid "Got theme support question?"
+msgstr "Vous avez une question pour le support ?"
+
+#: inc/admin/class-estore-admin.php:67
+#: inc/admin/class-estore-welcome-notice.php:42
+msgid "Get started with eStore"
+msgstr "Commencer avec eStore"
+
+#: inc/admin/class-estore-admin.php:52
+msgid "Dismiss"
+msgstr "Ignorer"
+
+#: inc/admin/class-estore-notice.php:74 inc/admin/class-estore-notice.php:93
+#: inc/admin/class-estore-welcome-notice.php:100
+msgid "Cheatin&#8217; huh?"
+msgstr "Alors on triche ?"
+
+#: inc/admin/class-estore-notice.php:70 inc/admin/class-estore-notice.php:89
+#: inc/admin/class-estore-theme-review-notice.php:154
+#: inc/admin/class-estore-theme-review-notice.php:172
+#: inc/admin/class-estore-welcome-notice.php:96
+msgid "Action failed. Please refresh the page and retry."
+msgstr "Action échouée. Veuillez rafraîchir la page et essayer à nouveau."
+
+#: inc/admin/class-estore-dashboard.php:95
+msgid "Documentation"
+msgstr "Dossier"
+
+#: inc/widgets/class-estore-vertical-promo-widget.php:12
+msgid "TG: Vertical Promo"
+msgstr "TG : Promo verticale"
+
+#: inc/widgets/class-estore-vertical-promo-widget.php:7
+msgid "Display some pages in vertical layout with featured image."
+msgstr "Affichage de certaines pages avec une mise en page verticale avec image mise en avant."
+
+#: inc/widgets/class-estore-full-width-promo-widget.php:29
+#: inc/widgets/class-estore-vertical-promo-widget.php:29
+msgid "Pages"
+msgstr "Page"
+
+#: inc/widgets/class-estore-full-width-promo-widget.php:12
+msgid "TG: Horizontal Promo"
+msgstr "TG : Promo horizontale"
+
+#: inc/widgets/class-estore-full-width-promo-widget.php:7
+msgid "Display some pages with featured image in horizontal layout."
+msgstr "Affichez certaines pages avec une image mise en avant avec une mise en page horizontale."
+
+#: inc/widgets/class-estore-728x90-ad.php:32
+msgid "Add your Advertisement Images Here. Any size supported."
+msgstr "Ajoutez vos images de publicité ici. Toutes tailles supportées."
+
+#: inc/widgets/class-estore-728x90-ad.php:13
+msgid "TG: Advertisement"
+msgstr "TG : Publicité"
+
+#: inc/widgets/class-estore-728x90-ad.php:7
+msgid "Add your Advertisement here"
+msgstr "Ajoutez votre publicité ici"
+
+#. Template Name of the theme
+msgid "WooCommerce Category Collection"
+msgstr "Collection de catégorie WooCommerce"
+
+#. Template Name of the theme
+msgid "eStore Home"
+msgstr "Accueil eStore"
+
+#: woocommerce/single-product/related.php:26
+msgid "Related products"
+msgstr "Produits similaires"
+
+#: woocommerce/checkout/form-login.php:32
+msgid "If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing &amp; Shipping section."
+msgstr "Si vous avez déjà commandé avec nous auparavant, veuillez saisir vos coordonnées ci-dessous. Si vous êtes un nouveau client, veuillez renseigner la section facturation et livraison."
+
+#: woocommerce/checkout/form-login.php:26
+msgid "Click here to login"
+msgstr "Cliquez ici pour vous connecter"
+
+#: woocommerce/checkout/form-login.php:26
+msgid "Returning customer?"
+msgstr "Déjà client&nbsp;?"
+
+#: woocommerce/checkout/form-checkout.php:54
+msgid "Your order"
+msgstr "Votre commande"
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr "Vous devez être connecté pour valider votre commande."
+
+#: woocommerce/checkout/form-billing.php:55
+msgid "Create an account?"
+msgstr "Créer un compte&nbsp;?"
+
+#: woocommerce/checkout/form-billing.php:30
+msgid "Billing details"
+msgstr "Détail de facturation"
+
+#: woocommerce/checkout/form-billing.php:26
+msgid "Billing &amp; Shipping"
+msgstr "Facturation &amp; Livraison"
+
+#: woocommerce/cart/cross-sells.php:27
+msgid "You may be interested in&hellip;"
+msgstr "Vous serez peut-être intéressé par&hellip;"
+
+#: woocommerce/cart/cart-totals.php:92
+msgid "estimated for %s"
+msgstr "estimé pour %s"
+
+#: woocommerce/cart/cart-totals.php:68 woocommerce/cart/cart-totals.php:69
+msgid "Shipping"
+msgstr "Frais de port"
+
+#: woocommerce/cart/cart-totals.php:46 woocommerce/cart/cart-totals.php:47
+msgid "Subtotal"
+msgstr "Sous-total"
+
+#: woocommerce/cart/cart-totals.php:41
+msgid "Cart Totals"
+msgstr "Totaux du panier"
+
+#: template-parts/content-single.php:39
+msgid "Tagged on: "
+msgstr "Mot clé :"
+
+#: template-parts/content-page.php:27 template-parts/content-single.php:47
+msgid "Pages:"
+msgstr "Pages:"
+
+#: template-parts/content-none.php:16
+msgid "Nothing Found"
+msgstr "Aucun résultat"
+
+#: inc/functions.php:45 searchform.php:12
+msgctxt "submit button"
+msgid "Search"
+msgstr "Recherche"
+
+#: searchform.php:11
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Recherche&hellip;"
+
+#: no-results.php:28 template-parts/content-none.php:31
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Il semble que rien ne soit trouvé pour votre recherche."
+
+#: no-results.php:23 template-parts/content-none.php:26
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Désolé, mais rien ne correspond à vos critères."
+
+#: no-results.php:18 template-parts/content-none.php:22
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Prêt à publier votre 1er article ? <a href=\"%1$s\">Lancez vous ici</a>."
+
+#: inc/woocommerce.php:216
+msgid "This layout will be reflected in product page of WooCommerce."
+msgstr "Cette mise en page sera répercutée dans les page de produit WooCommerce."
+
+#: inc/woocommerce.php:197
+msgid "Product Page Layout"
+msgstr "Mise en page de produit"
+
+#: inc/woocommerce.php:179
+msgid "This layout will be reflected in archives, categories, search page etc. of WooCommerce."
+msgstr "Cette mise en page sera répercutée dans les archives, catégories, pas de recherche etc WooCommerce."
+
+#: inc/woocommerce.php:160
+msgid "Archive Page Layout"
+msgstr "Mise en page d’archive"
+
+#: inc/woocommerce.php:113
+msgid "Enable Currency Symbol"
+msgstr "Activer le symbole monétaire"
+
+#: inc/woocommerce.php:97
+msgid "Enable My Account Button"
+msgstr "Activer le bouton mon compte"
+
+#: inc/woocommerce.php:85
+msgid "Change WooCommerce settings related to theme."
+msgstr "Changer les réglages de WooCommerce en relation avec le thème"
+
+#: inc/woocommerce.php:83
+msgid "WooCommerce Settings"
+msgstr "Paramètres WooCommerce"
+
+#: inc/woocommerce.php:59
+msgid "Widget area for WooCommerce Pages."
+msgstr "Zone de widgets pour les pages WooCommerce"
+
+#: inc/woocommerce.php:57
+msgid "Shop Sidebar"
+msgstr "Barre de boutique"
+
+#: inc/widgets/class-estore-posts-grid.php:84
+msgid "Number of Posts:"
+msgstr "Nombre des articles: "
+
+#: inc/widgets/class-estore-posts-grid.php:13
+msgid "TG: Category Grid"
+msgstr "TG : Grille de catégorie"
+
+#: inc/widgets/class-estore-posts-grid.php:7
+msgid "Show Featured Category Posts in Grid Layout."
+msgstr "Affichage des articles de catégorie mise en avant dans une mise en page en grille."
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:16
+msgid "TG: Category Carousel"
+msgstr "TG : Carrousel de catégorie"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:8
+msgid "Display latest posts or posts of specific category, which will be used as the carousel."
+msgstr "Affichage des derniers articles du site ou d’une catégorie spécifique, qui seront utilisés pour le carrousel"
+
+#: inc/widgets/class-estore-woocommerce-product-slider.php:133
+msgid "Add to Cart"
+msgstr "Ajouter au panier"
+
+#: inc/widgets/class-estore-woocommerce-product-slider.php:37
+msgid "Show Products from a category"
+msgstr "Afficher les produits depuis une catégorie"
+
+#: inc/widgets/class-estore-woocommerce-product-slider.php:36
+msgid "Show Latest Products"
+msgstr "Afficher les produits récents"
+
+#: inc/widgets/class-estore-woocommerce-product-slider.php:31
+msgid "Number of products to display:"
+msgstr "Nombre de produits à afficher :"
+
+#: inc/widgets/class-estore-woocommerce-product-slider.php:15
+msgid "TG: Product Slider"
+msgstr "TG : Diaporama de produit"
+
+#: inc/widgets/class-estore-woocommerce-product-slider.php:8
+msgid "Display WooCommerce Product from category."
+msgstr "Affichage de produit WooCommerce depuis une catégorie"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:168
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:104
+msgid "Read More"
+msgstr "En savoir plus"
+
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:15
+msgid "TG: Category Slider"
+msgstr "TG : Diaporama de catégorie"
+
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:8
+msgid "Display latest posts or posts of specific category, which will be used as the slider."
+msgstr "Affichez vos derniers articles ou ceux d’une catégorie spécifique qui seront utilisés pour le diaporama."
+
+#: inc/widgets/classs-estore-logo-widget.php:68
+msgid "Logo Image "
+msgstr "Image de logo"
+
+#: inc/widgets/classs-estore-logo-widget.php:59
+msgid "Logo Link "
+msgstr "Lien de logo"
+
+#: inc/widgets/classs-estore-logo-widget.php:50
+msgid "Add your clients/brands logo Here"
+msgstr "Ajoutez vos logos de clients / marques ici."
+
+#: inc/widgets/classs-estore-logo-widget.php:14
+msgid "TG: Logo"
+msgstr "TG : Logo"
+
+#: inc/widgets/classs-estore-logo-widget.php:8
+msgid "Add your clients/brand logo images here"
+msgstr "Ajoutez vos images / logos de clients / marques ici"
+
+#: inc/widgets/class-estore-featured-posts-widget.php:153
+#: template-parts/content.php:45
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: inc/widgets/class-estore-featured-posts-widget.php:128
+msgid "Blog Image"
+msgstr "Image de blog"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:54
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:41
+#: inc/widgets/class-estore-featured-posts-widget.php:47
+#: inc/widgets/class-estore-woocommerce-product-slider.php:41
+msgid "Select category"
+msgstr "Choix de catégorie"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:50
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:37
+#: inc/widgets/class-estore-featured-posts-widget.php:43
+msgid "Show posts from a category"
+msgstr "Afficher les articles à partir d'une catégorie"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:49
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:36
+#: inc/widgets/class-estore-featured-posts-widget.php:42
+msgid "Show latest Posts"
+msgstr "Affiche les derniers articles"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:44
+#: inc/widgets/class-estore-featured-posts-slider-widget.php:31
+#: inc/widgets/class-estore-featured-posts-widget.php:37
+msgid "Number of posts to display:"
+msgstr "Nombre d'articles à afficher :"
+
+#: inc/widgets/class-estore-featured-posts-widget.php:14
+msgid "TG: Featured Posts"
+msgstr "TG : Articles en avant"
+
+#: inc/widgets/class-estore-featured-posts-widget.php:8
+msgid "Display latest posts or posts of specific category"
+msgstr "Affiche les articles récents d'une catégorie spécifique"
+
+#: inc/widgets/class-estore-woocommerce-product-grid.php:267
+#: woocommerce/loop/price.php:26
+msgid "Price: "
+msgstr "Prix : "
+
+#: inc/widgets/class-estore-woocommerce-product-grid.php:200
+msgid "Hot products"
+msgstr "Produits chauds"
+
+#: inc/widgets/class-estore-posts-grid.php:153
+#: inc/widgets/class-estore-woocommerce-product-grid.php:173
+#: page-templates/template-wc-collection.php:61
+msgid "View all"
+msgstr "Voir tout"
+
+#: inc/widgets/class-estore-posts-grid.php:67
+#: inc/widgets/class-estore-woocommerce-product-grid.php:67
+msgid "Left Align"
+msgstr "Aligné à gauche"
+
+#: inc/widgets/class-estore-posts-grid.php:66
+#: inc/widgets/class-estore-woocommerce-product-grid.php:66
+msgid "Right Align"
+msgstr "Aligné à droite"
+
+#: inc/widgets/class-estore-posts-grid.php:63
+#: inc/widgets/class-estore-woocommerce-product-grid.php:63
+msgid "Choose where to align your image."
+msgstr "Choisissez l’alignement de votre image."
+
+#: inc/widgets/class-estore-posts-grid.php:51
+#: inc/widgets/class-estore-woocommerce-product-grid.php:51
+msgid "Category Image"
+msgstr "Image de catégorie"
+
+#: inc/widgets/class-estore-posts-grid.php:47
+#: inc/widgets/class-estore-woocommerce-product-grid.php:47
+msgid "Image Link"
+msgstr "Lien Image"
+
+#: inc/widgets/class-estore-posts-grid.php:44
+#: inc/widgets/class-estore-woocommerce-product-grid.php:44
+msgid "Add your Category Image here."
+msgstr "Ajoutez votre image de catégorie ici."
+
+#: inc/widgets/class-estore-woocommerce-product-grid.php:13
+msgid "TG: Product Grid"
+msgstr "TG : Grille de produit"
+
+#: inc/widgets/class-estore-woocommerce-product-grid.php:7
+msgid "Show WooCommerce Featured Products Grid."
+msgstr "Affichage de grille de produits WooCommerce mis en avant."
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:239
+#: inc/widgets/class-estore-woocommerce-product-grid.php:238
+#: inc/widgets/class-estore-woocommerce-product-grid.php:274
+msgid "Add to Wishlist"
+msgstr "Ajouter à la wishlist"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:232
+msgid "Price:"
+msgstr "Prix&nbsp;:"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:206
+#: inc/widgets/class-estore-woocommerce-product-grid.php:220
+#: inc/woocommerce.php:321 inc/woocommerce.php:345
+msgid "Sale!"
+msgstr "Promo&nbsp;!"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:68
+#: inc/widgets/class-estore-woocommerce-product-grid.php:85
+msgid "Number of Products:"
+msgstr "Nombre de produits :"
+
+#: inc/widgets/class-estore-posts-grid.php:71
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:53
+#: inc/widgets/class-estore-woocommerce-product-grid.php:71
+msgid "Category:"
+msgstr "Catégories :"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:48
+msgid "Certain Category"
+msgstr "Certaines catégories"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:47
+msgid "On Sale Products"
+msgstr "Produits en promotion"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:46
+msgid "Featured Products"
+msgstr "Produits &agrave; la une"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:45
+msgid "Latest Products"
+msgstr "Produits récents"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:43
+msgid "Product Source:"
+msgstr "Source de produit :"
+
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:40
+#: inc/widgets/class-estore-posts-grid.php:41
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:39
+#: inc/widgets/class-estore-woocommerce-product-grid.php:41
+msgid "Description:"
+msgstr "Description :"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:13
+msgid "TG: Products Carousel"
+msgstr "TG : Carrousel de produit"
+
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:7
+msgid "Show WooCommerce Featured Products Carousel."
+msgstr "Affichage de carrousel de produits WooCommerce mis en avant"
+
+#: inc/widgets/class-estore-woocommerce-vertical-promo-widget.php:13
+msgid "TG: Vertical Promo WC Category"
+msgstr "TG : Promo verticale WC catégorie"
+
+#: inc/widgets/class-estore-woocommerce-vertical-promo-widget.php:7
+msgid "Display WooCommerce Product Categories in vertical layout with featured image."
+msgstr "Affichage de catégories de produit WooCommerce dans une mise en page verticale avec image mise en avant."
+
+#: inc/widgets/class-estore-woocommerce-full-width-promo-widget.php:30
+#: inc/widgets/class-estore-woocommerce-vertical-promo-widget.php:30
+msgid "Category"
+msgstr "Catégorie"
+
+#: inc/widgets/class-estore-woocommerce-full-width-promo-widget.php:13
+msgid "TG: Horizontal Promo WC Category"
+msgstr "TG : Promo horizontale de catégorie WC"
+
+#: inc/widgets/class-estore-woocommerce-full-width-promo-widget.php:7
+msgid "Display WooCommerce Product Categories with featured image in horizontal layout."
+msgstr "Affichage de catégories WooCommerce avec image mise en avant dans une mise en page horizontale."
+
+#: inc/widgets/class-estore-about.php:31
+msgid "Select a page to display Title, Excerpt and Featured image."
+msgstr "Sélectionnez une page pour afficher le titre, l’extrait et l’image mise en avant"
+
+#: inc/widgets/class-estore-about.php:13
+msgid "TG: About Widget"
+msgstr "TG : Widget à propos"
+
+#: inc/widgets/class-estore-about.php:7
+msgid "Show your about page. Suitable for Click to Action."
+msgstr "Affichage de votre page à propos. Pour l’appel à action."
+
+#: inc/widgets/class-estore-728x90-ad.php:38
+msgid "Advertisement Image "
+msgstr "Image de publicité"
+
+#: inc/widgets/class-estore-728x90-ad.php:34
+msgid "Advertisement Image Link "
+msgstr "Lien d’image de publicité"
+
+#: inc/widgets/class-estore-728x90-ad.php:29
+#: inc/widgets/class-estore-about.php:27
+#: inc/widgets/class-estore-featured-posts-carousel-widget.php:36
+#: inc/widgets/class-estore-featured-posts-widget.php:33
+#: inc/widgets/class-estore-posts-grid.php:37
+#: inc/widgets/class-estore-woocommerce-product-carousel.php:35
+#: inc/widgets/class-estore-woocommerce-product-grid.php:37
+#: inc/widgets/classs-estore-logo-widget.php:47
+msgid "Title:"
+msgstr "Titre’:"
+
+#: inc/widgets.php:121
+msgid "Footer Sidebar 4"
+msgstr "Zone de Pied de Page 4"
+
+#: inc/widgets.php:109
+msgid "Footer Sidebar 3"
+msgstr "Zone de Pied de Page 3"
+
+#: inc/widgets.php:97
+msgid "Footer Sidebar 2"
+msgstr "Zone de Pied de Page 2"
+
+#: inc/widgets.php:88 inc/widgets.php:99 inc/widgets.php:111
+#: inc/widgets.php:123
+msgid "Show widgets at Footer section"
+msgstr "Afficher les widgets de la section de pied"
+
+#: inc/widgets.php:86
+msgid "Footer Sidebar 1"
+msgstr "Zone de Pied de Page 1"
+
+#: inc/widgets.php:73
+msgid "Front Page Sidebar"
+msgstr "Barre de page d’accueil"
+
+#: inc/widgets.php:62
+msgid "Front Page: Area beside Slider"
+msgstr "Page d’accueil : Zone à côté du diaporama"
+
+#: inc/widgets.php:51
+msgid "Front Page: Slider Area"
+msgstr "Page d’accueil : Zone de diaporama"
+
+#: inc/widgets.php:40
+msgid "Header Right Sidebar"
+msgstr "Sidebar de Droite d'En-tête"
+
+#: inc/widgets/class-estore-about.php:32
+msgid "Page"
+msgstr "Page"
+
+#: inc/estore.php:105
+msgid "Error 404"
+msgstr "erreur 404"
+
+#: inc/estore.php:104
+msgid "Articles Posted by %s"
+msgstr "Articles publiés par %s"
+
+#: inc/estore.php:103
+msgid "Posts Tagged \"%s\""
+msgstr "Articles avec l’étiquette \"%s\""
+
+#: inc/estore.php:102
+msgid "Search Results for \"%s\" query"
+msgstr "Résultats de recherche pour la requête \"%s\""
+
+#: inc/estore.php:101
+msgid "Archive for \"%s\""
+msgstr "Archive pour \"%s\""
+
+#: inc/estore.php:100
+msgid "Archive by Category \"%s\""
+msgstr "Archive par catégorie \"%s\""
+
+#: inc/estore.php:99
+msgid "Home"
+msgstr "Accueil"
+
+#: inc/estore.php:34 inc/related-posts.php:43
+#: inc/widgets/class-estore-featured-posts-widget.php:141
+#: inc/widgets/class-estore-posts-grid.php:227
+msgid " % Comments"
+msgstr "% Commentaires"
+
+#: inc/estore.php:33 inc/related-posts.php:43
+#: inc/widgets/class-estore-featured-posts-widget.php:141
+#: inc/widgets/class-estore-posts-grid.php:227
+msgid "1 Comment"
+msgstr "1 Commentaire"
+
+#: inc/estore.php:32 inc/related-posts.php:43
+#: inc/widgets/class-estore-featured-posts-widget.php:141
+#: inc/widgets/class-estore-posts-grid.php:227
+msgid "0 Comment"
+msgstr "0 Commentaire"
+
+#: inc/customizer.php:839
+msgid "Payment Partners Logo"
+msgstr "Logo des partenaires de paiement"
+
+#: inc/customizer.php:827
+msgid "Hide tags under post title."
+msgstr "Masquer les étiquettes sous le titre de l’article"
+
+#: inc/customizer.php:807
+msgid "Hide category under post title."
+msgstr "Masquer la catégorie sous le titre de l’article"
+
+#: inc/customizer.php:787
+msgid "Hide comment count under post title."
+msgstr "Masquer le nombre de commentaires sous le titre de l’article"
+
+#: inc/customizer.php:767
+msgid "Hide author under post title."
+msgstr "Masquer l’auteur sous le titre de l’article"
+
+#: inc/customizer.php:747
+msgid "Hide date under post title."
+msgstr "Masquer la date sous le titre de l’article"
+
+#: inc/customizer.php:727
+msgid "Hide all post meta data under post title."
+msgstr "Masquer tous les méta d’articles sous le titre"
+
+#: inc/customizer.php:710
+msgid "Note: This will only work in single posts."
+msgstr "Note : Ceci ne fonctionne que dans les articles"
+
+#: inc/customizer.php:708
+msgid "Post Meta Settings"
+msgstr "Réglages de méta d’atrticle"
+
+#: inc/customizer.php:693 inc/woocommerce.php:145
+msgid " %s"
+msgstr " %s"
+
+#: inc/customizer.php:667 inc/woocommerce.php:122
+msgid "Category Color Settings"
+msgstr "Réglages de couleur de catégorie"
+
+#: inc/customizer.php:577
+msgid "Additional Options"
+msgstr "Options supplémentaires"
+
+#: inc/customizer.php:575
+msgid "Some additional settings."
+msgstr "Quelques réglages additionnels"
+
+#: inc/customizer.php:563
+msgid "4 Footer Widget Area"
+msgstr "4 zones de widget de pied"
+
+#: inc/customizer.php:562
+msgid "3 Footer Widget Area"
+msgstr "3 zones de widget de pied"
+
+#: inc/customizer.php:561
+msgid "2 Footer Widget Area"
+msgstr "2 zones de widget de pied"
+
+#: inc/customizer.php:560
+msgid "1 Footer Widget Area"
+msgstr "1 zone de widget de pied"
+
+#: inc/customizer.php:556
+msgid "Choose the number of widget area you want in footer"
+msgstr "Choisissez le nombre de zones de widget voulues dans le pied"
+
+#: inc/customizer.php:539
+msgid "Footer Widgets"
+msgstr "Widgets De Pied De Page"
+
+#: inc/customizer.php:489
+msgid "Select default layout for single posts. This layout will be reflected in all single posts unless unique layout is set for specific post"
+msgstr "Sélectionnez une mise en page par défaut pour les articles. Elle se répercutera sur tous les articles à moins qu’une mise en page unique soit définie pour un article spécifique."
+
+#: inc/customizer.php:470
+msgid "Default Single Post Layout"
+msgstr "Mise en page par défaut d’article"
+
+#: inc/customizer.php:452
+msgid "Select default layout for pages. This layout will be reflected in all pages unless unique layout is set for specific page"
+msgstr "Sélectionnez une mise en page par défaut pour les pages. Elle se répercutera sur toutes les pages à moins qu’une mise en page unique soit définie pour une page spécifique."
+
+#: inc/customizer.php:433
+msgid "Default Page Layout"
+msgstr "Mise en page par défaut de page"
+
+#: inc/customizer.php:415
+msgid "Select default layout. This layout will be reflected in whole site archives, categories, search page etc. The layout for a single post and page can be controlled from below options"
+msgstr "Sélectionnez une mise en page par défaut. Elle se répercutera sur les archives, les catégories, la page de recherche du site du site, etc. La mise en page pour les articles et les pages peuvent être contrôlées dans les options ci dessous."
+
+#: inc/customizer.php:385
+msgid "This will reflect in links, buttons and many others. Choose a color to match your site"
+msgstr "Ceci se répercutera sur tous les liens, boutons, etc. Choisissez une couleur en accord avec votre site."
+
+#: inc/customizer.php:364
+msgid "Primary Color Option"
+msgstr "Option de couleur principale"
+
+#: inc/customizer.php:355
+msgid "Design Options"
+msgstr "Options graphiques"
+
+#: inc/customizer.php:353
+msgid "Design Related Settings"
+msgstr "Réglages en rapport avec le design"
+
+#: inc/customizer.php:295
+msgid "Header Text"
+msgstr "Texte d'en-tête :"
+
+#: inc/customizer.php:272
+msgid "Activate the header top bar"
+msgstr "Activer la barre haute d’en-tête"
+
+#: inc/customizer.php:254
+msgid "Header Top Bar"
+msgstr "Barre haute d’en-tête"
+
+#: inc/customizer.php:199
+msgid "Disable"
+msgstr "Désactiver"
+
+#: inc/customizer.php:198
+msgid "Show both header logo and text"
+msgstr "Afficher le logo et le texte"
+
+#: inc/customizer.php:197
+msgid "Header Text Only"
+msgstr "Texte d'en-tête seul"
+
+#: inc/customizer.php:196
+msgid "Header Logo Only"
+msgstr "Logo d'en-tête seul"
+
+#: inc/customizer.php:192
+msgid "Choose the required option"
+msgstr "Choisissez l’option nécessaire"
+
+#: inc/customizer.php:861
+msgid "Upload logo"
+msgstr "Télécharger Logo"
+
+#: inc/customizer.php:174
+msgid "Header Logo"
+msgstr "Logo En-tête"
+
+#: inc/customizer.php:161
+msgid "Enable Language Selection (WPML)"
+msgstr "Activer la sélection de langue (WPML)"
+
+#: inc/customizer.php:143
+msgid "Header Integrations"
+msgstr "Intégrations d’en-tête"
+
+#: inc/customizer.php:134
+msgid "Header Options"
+msgstr "Options de l'en-tête"
+
+#: inc/customizer.php:132
+msgid "Change Header Settings here"
+msgstr "Changez les réglages d’en-tête ici"
+
+#: inc/admin/meta-boxes.php:49
+msgid "No Sidebar Content Centered"
+msgstr "Pas de  Barre, Contenu Centré"
+
+#: inc/admin/meta-boxes.php:44
+msgid "No Sidebar Full Width"
+msgstr "Pleine largeur (pas de barre)"
+
+#: inc/admin/meta-boxes.php:39 inc/widgets.php:30
+msgid "Left Sidebar"
+msgstr "Barre latérale gauche"
+
+#: inc/admin/meta-boxes.php:34 inc/widgets.php:20
+msgid "Right Sidebar"
+msgstr "Barre latérale droite"
+
+#: inc/admin/meta-boxes.php:29 inc/customizer.php:396
+msgid "Default Layout"
+msgstr "Style par défaut"
+
+#: inc/admin/meta-boxes.php:15
+msgid "Select Layout"
+msgstr "Sélectionner la mise en page"
+
+#: header.php:225
+msgid "Login / Register"
+msgstr "Connexion / Se inscrire"
+
+#: header.php:174 inc/woocommerce.php:511 woocommerce/cart/cart-totals.php:114
+#: woocommerce/cart/cart-totals.php:115
+msgid "Total"
+msgstr "Total"
+
+#: header.php:86
+msgid "Login/ Register"
+msgstr "Connexion / Inscription"
+
+#: header.php:85
+msgid "Login/Register"
+msgstr "Connexion / Inscription"
+
+#: header.php:81 header.php:82 header.php:221
+msgid "My Account"
+msgstr "Mon Compte"
+
+#: header.php:42
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: functions.php:99
+msgid "Secondary Menu"
+msgstr "Menu secondaire"
+
+#: functions.php:98
+msgid "Header Top Bar Menu"
+msgstr "Menu de barre haute d’en-tête"
+
+#: functions.php:97
+msgid "Primary Menu"
+msgstr "Menu principal"
+
+#: footer.php:19
+msgid "Theme: %1$s by %2$s."
+msgstr "Thème %1$s par %2$s"
+
+#: comments.php:79
+msgid "Comments are closed."
+msgstr "Les commentaires sont clos."
+
+#: comments.php:46 comments.php:67
+msgid "Newer Comments"
+msgstr "Commentaires plus récents"
+
+#: comments.php:45 comments.php:66
+msgid "Older Comments"
+msgstr "Commentaires plus anciens"
+
+#: comments.php:42 comments.php:63
+msgid "Comment navigation"
+msgstr "Navigation de commentaire"
+
+#: comments.php:33
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Une réaction au sujet de &laquo;&nbsp;%2$s&nbsp;&raquo;"
+msgstr[1] "%1$s réactions au sujet de &laquo;&nbsp;%2$s&nbsp;&raquo;"
+
+#: 404.php:41
+msgid "It looks like nothing was found at this location. Try the search below."
+msgstr "Il semble qu'il n'y ait rien ici. Essayer une recherche?"
+
+#: 404.php:38 functions.php:304
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups, la page ne peut être trouvée"
+
+#: 404.php:35
+msgid "error"
+msgstr "Erreur "
+
+#: 404.php:20 404.php:33
+msgid "404"
+msgstr "404"
+
+#. Author URI of the theme
+msgid "https://www.themegrill.com"
+msgstr "https://www.themegrill.com"
+
+#. Author of the theme
+msgid "ThemeGrill"
+msgstr "Theme Grill"
+
+#. Theme URI of the theme
+msgid "https://www.themegrill.com/themes/estore/"
+msgstr "https://www.themegrill.com/themes/estore/"

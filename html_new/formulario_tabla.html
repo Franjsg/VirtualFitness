@@ -1,0 +1,333 @@
+<style>
+    .ocultar {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .wpforms-submit {
+        background-color: #0069D9;
+        border: 1px solid #291291;
+        box-shadow: 0 3px 0 #291291;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .wpforms-submit:hover {
+        background-color: #0069D9;
+        border: 1px solid #291291;
+        box-shadow: 0 2px 0 #291291;
+    }
+
+    #message {
+        padding-top: 10px;
+        color: red;
+    }
+
+    .ali-radio{
+        padding-left: 5px;
+        padding-top: 9px
+    }
+
+    .inp-radio{
+        width: 17px;
+        margin: 0;
+        box-shadow: none !important;
+    }
+
+    .content-radio{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .text-label{
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .text-label-1{
+        font-size: 14px;
+        font-weight: normal;
+    }
+</style>
+
+<div id="load"></div>
+<article class="col-md-9">
+    <div class="post-540 page type-page status-publish hentry">
+        <div class="main-content-page single-content">
+            <div class="single-entry-summary ocultar" id="content-form">
+                <div class="wpforms-container wpforms-container-full" id="wpforms-514">
+
+                    <form id="wpforms-form-514">
+                        <div class="wpforms-field-container">
+
+                            <div id="wpforms-514-field_1-container" class="form-group">
+                                <label class="text-label" for="wpforms-514-field_1">Nombre y  apellidos:</label>
+                                <input type="text" id="wpforms-514-field_1" class="form-control" name="nombre" placeholder="Nombre y apellidos" required="required">
+                            </div>
+
+                            <div id="wpforms-514-field_2-container" class="form-group">
+                                <label class="text-label" class="wpforms-field-label" for="wpforms-514-field_2">Edad: </label>
+                                <input type="number" id="wpforms-514-field_2" class="form-control" placeholder="Edad" name="edad" required="required">
+                            </div>
+
+                            <div id="wpforms-514-field_3-container"  class="form-group">
+                                <label class="text-label" for="wpforms-514-field_3">Género:</label>
+                                <select id="wpforms-514-field_3" class="form-control" name="genero" required="required">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                            </div>
+
+                            <div id="wpforms-514-field_4-container" class="form-group">
+                                <label class="text-label" for="wpforms-514-field_4">¿Cúal es su  objetivo?</label>
+                                <ul id="wpforms-514-field_4">
+                                    <li class="content-radio">
+                                        <input type="radio" id="wpforms-514-field_4_1" name="objetivo" class="inp-radio form-control" value="Subir masa muscular" required="">
+                                        <label class="text-label-1 ali-radio" for="wpforms-514-field_4_1" class="ali-radio">Subir masa muscular</label>
+                                    </li>
+                                    <li class="content-radio">
+                                        <input type="radio" id="wpforms-514-field_4_2" name="objetivo" class="inp-radio form-control"  value="Bajar peso" required="">
+                                         <label class="text-label-1 ali-radio" for="wpforms-514-field_4_2" class="ali-radio">Bajar  peso</label>
+                                    </li>
+                                    <li class="content-radio">
+                                        <input type="radio" id="wpforms-514-field_4_3" name="objetivo" class="inp-radio form-control" value="Tonificar" required="">
+                                        <label class="text-label-1 ali-radio" for="wpforms-514-field_4_3" class="ali-radio">Tonificar</label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <label class="text-label" for="wpforms-514-field_6">¿Padece de alguna patología de las que se muestran a continuación?</label>
+                                <ul id="wpforms-514-field_6">
+                                    <li class="content-radio">
+                                        <input type="checkbox" id="wpforms-514-field_6_2" name="enfermedad" class="inp-radio form-control" value="Rotura de fibras">
+                                        <label class="text-label-1 ali-radio" class="ali-radio" for="wpforms-514-field_6_2">Rotura de  fibras</label>
+                                    </li>
+                                    <li class="content-radio">
+                                        <input type="checkbox" id="wpforms-514-field_6_3" name="enfermedad" class="inp-radio form-control" value="Tendinitis en el manguito rotador">
+                                        <label class="text-label-1 ali-radio" for="wpforms-514-field_6_3">Tendinitis en el manguito rotador</label></li>
+                                    <li class="content-radio">
+                                        <input type="checkbox" id="wpforms-514-field_6_4" name="enfermedad" class="inp-radio form-control" value="Tendinitis rotuliana">
+                                         <label class="text-label-1 ali-radio" for="wpforms-514-field_6_4">Tendinitis rotuliana</label>
+                                    </li>
+                                    <li class="content-radio">
+                                        <input type="checkbox" id="wpforms-514-field_6_5"  name="enfermedad" class="inp-radio form-control" value="Lumbalgia">
+                                        <label class="text-label-1 ali-radio" for="wpforms-514-field_6_5">Lumbalgia</label>
+                                    </li>
+                                    <li class="content-radio">
+                                        <input type="checkbox" id="wpforms-514-field_6_5" name="enfermedad" class="inp-radio form-control" value="Asma"> 
+                                        <label class="text-label-1 ali-radio" for="wpforms-514-field_6_5" >Asma</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="wpforms-submit-container">
+                            <input type="hidden"
+                                name="wpforms[post_id]" value="540"><button type="submit" name="wpforms[submit]"
+                                id="wpforms-submit-514" class="wpforms-submit" data-alt-text="Enviando..."
+                                data-submit-text="Enviar" aria-live="assertive"
+                                value="wpforms-submit">Enviar</button><img
+                                src="http://localhost/wordpress/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg"
+                                class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt="">
+                        </div>
+                        <input type="hidden" name="action" value="send_form" class="no-visible">
+                    </form>
+                </div> 
+            </div>
+            <div id="message"></div>
+            <div id="contenido" class="ocultar"></div>
+        </div>
+    </div>
+</article>
+<div id="spinner"></div>
+<script>
+
+    function entrenamiento() {
+        debugger;
+        addSpinner('load');
+        const form_data = [];
+        // Here we add our nonce (The one we created on our functions.php. WordPress needs this code to verify if the request comes from a valid source.
+        form_data.push({ "name": "security", "value": ajax_nonce });
+        form_data.push({ "name": 'action', "value": 'action_entrenamiento' });
+
+        jQuery.ajax({
+            url: ajax_url, // Here goes our WordPress AJAX endpoint.
+            type: 'post',
+            data: form_data,
+            success: function (response) {
+                debugger;
+                if (!processAjaxActionError(response)) {
+                    removeSpinner('load');
+                    var data = JSON.parse(response);
+                    if (data.haydatos) {
+                        var html = generateHtmlEntrenamiento(data);
+                        jQuery("#wpforms-form-514").remove();
+                        jQuery('h1').text('Plan de entrenamiento personalizado');
+                        jQuery('#contenido').removeClass('ocultar');
+                        jQuery('#contenido').html(html);
+                    } else {
+                        jQuery('h1').text('Formulario de tabla');
+                        jQuery('#content-form').removeClass('ocultar');
+                    }
+                }
+            },
+            fail: function (err) {
+                // You can craft something here to handle an error if something goes wrong when doing the AJAX request.
+                alert("There was an error: " + err);
+            }
+        });
+    }
+
+    function generateHtmlEntrenamiento(data) {
+        var html = '<div class="fechas">';
+        html += '<p>Plan: ' + data.plan + '</p>';
+        html += '<p>Fecha inicio del plan: ' + data.fechaInicio + '</p>';
+        html += '<p>Fecha fin del plan: ' + data.fechaFin + '</p>';
+        html += '</div>';
+
+        if (data.patologiaUsuario && data.patologiaUsuario.length > 0) {
+            var patologiasUsuario = '<table id="tablapatologias" class="table table-striped table-hover blueTable">';
+            patologiasUsuario += '<tr>';
+            patologiasUsuario += '<th>#</th>';
+            patologiasUsuario += '<th class="text-center">Patologías</th>';
+            patologiasUsuario += '</tr>';
+            data.patologiaUsuario.forEach((pat, index) => {
+                patologiasUsuario += '<tr>';
+                patologiasUsuario += '<td>' + (index + 1) + '</td>';
+                patologiasUsuario += '<td>' + pat.patologia + '</td>';
+                patologiasUsuario += '</tr>';
+            });
+            patologiasUsuario += '</table>';
+        } else {
+            patologiasUsuario = 'No hay patologías para mostrar.';
+        }
+
+        var ejercicios = '';
+        if (data.ejercicios && data.ejercicios.length > 0) {
+            ejercicios = '<table id="tablaejercicios" class="table table-striped table-hover blueTable">';
+            ejercicios += '<tr>';
+            ejercicios += '<th class="text-center">#</th>';
+            ejercicios += '<th class="text-center">Nombre del ejercicio</th>';
+            ejercicios += '<th class="text-center">Categoría</th>';
+            ejercicios += '<th class="text-center">Serie y repeticiones</th>';
+            ejercicios += '</tr>';
+
+            data.ejercicios.forEach((ejer, index) => {
+                ejercicios += '<tr>';
+                ejercicios += '<td>' + (index + 1) + '</td>';
+                ejercicios += '<td>' + ejer.nombreEjer + '</td>';
+                ejercicios += '<td>' + ejer.nombreCategoria + '</td>';
+                ejercicios += '<td>' + ejer.numeroYRepeticiones + '</td>';
+                ejercicios += '</tr>';
+            });
+            ejercicios += '</table>';
+        } else {
+            ejercicios = 'No hay ejercicios para mostrar.';
+        }
+
+        html += '<div>' + patologiasUsuario + '</div>';
+        html += '<div>' + ejercicios + '</div>';
+        return html;
+    }
+
+    function isValid() {
+        debugger;
+        jQuery('#message').html('');
+
+        // Comprobar que los campos estén rellenos
+        var errors = [];
+        var nameSurname = jQuery('#wpforms-514-field_1').val();
+        if (nameSurname == null || nameSurname === '') {
+            errors.push('Debe introducir el nombre y apellidos.')
+        }
+
+        var age = jQuery('#wpforms-514-field_2').val();
+        if (age == null || age === '') {
+            errors.push('Debe introducir la edad.')
+        }
+
+        var objetivo = jQuery('input:radio[name=objetivo]:checked').val();
+        if (objetivo == null || objetivo === '') {
+            errors.push('Debe seleccionar el objetivo.')
+        }
+
+        return errors;
+    }
+
+    function formularioTabla() {
+        jQuery('#wpforms-form-514').on('submit', function () {
+            debugger;
+
+            var form_data = jQuery(this).serializeArray();
+
+            // Here we add our nonce (The one we created on our functions.php. WordPress needs this code to verify if the request comes from a valid source.
+            form_data.push({ "name": "security", "value": ajax_nonce });
+
+            var errors = isValid();
+            debugger;
+            if (errors.length === 0) {
+                addSpinner('spinner');
+                // Here is the ajax petition.
+                jQuery.ajax({
+                    url: ajax_url, // Here goes our WordPress AJAX endpoint.
+                    type: 'post',
+                    data: form_data,
+                    success: function (response) {
+                        if (!processAjaxActionError(response)) {
+                            removeSpinner('spinner');
+                            debugger;
+                            var data = JSON.parse(response);
+
+                            if (data.arrayMessage && data.arrayMessage.length === 0) {
+                                if (data.sinPlan) {
+                                    window.location.href = '/wordpress/planes/';
+                                }
+                                else if (data.activo === 0) {
+                                    window.location.href = '/wordpress/pago-realizado-con-exito/';
+                                } else {
+                                    var html = generateHtmlEntrenamiento(data);
+                                    jQuery("#wpforms-form-514").remove();
+                                    jQuery('h1').text('Plan de entrenamiento personalizado');
+                                    jQuery('#contenido').removeClass('ocultar');
+                                    jQuery('#contenido').html(html);
+                                }
+                            } else {
+                                // Pintar el error
+                                var strError = '';
+                                data.arrayMessage.forEach(error => strError += error);
+                                jQuery('#message').html(strError);
+                            }
+                        }
+                    },
+                    fail: function (err) {
+                        removeSpinner('load');
+                        alert("There was an error: " + err);
+                    }
+                });
+            } else {
+                var errorMesagge = '';
+                errors.forEach(e => {
+                    errorMesagge += '<p>' + e + '</p>';
+                });
+                jQuery('#message').html(errorMesagge);
+            }
+            // This return prevents the submit event to refresh the page.
+            return false;
+        });
+    }
+
+    jQuery(function () {
+        formularioTabla();
+
+        entrenamiento();
+    });
+</script>

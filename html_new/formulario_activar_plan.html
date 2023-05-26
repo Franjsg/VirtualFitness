@@ -1,0 +1,70 @@
+<style>
+    .wpforms-submit {
+        background-color: #0069D9;
+        border: 1px solid #291291;
+        box-shadow: 0 3px 0 #291291;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .wpforms-submit:hover {
+        background-color: #0069D9;
+        border: 1px solid #291291;
+        box-shadow: 0 2px 0 #291291;
+    }
+</style>
+
+<form id="form-activar-plan" action="" method="post">
+    <input type="hidden" name="action" value="action_activar_plan"
+        style="display: none; visibility: hidden; opacity: 0;">
+    <button class="btn btn-primary wpforms-submit" type="submit">Activar plan ahora</button>
+</form>
+<div id="spinner"></div>
+
+<script>
+    debugger;
+    function activarPlan() {
+
+        jQuery('#form-activar-plan').on('submit', function () {
+            debugger;
+            addSpinner('spinner');
+            var form_data = jQuery(this).serializeArray();
+
+            // Here we add our nonce (The one we created on our functions.php. WordPress needs this code to verify if the request comes from a valid source.
+            form_data.push({ "name": "security", "value": ajax_nonce });
+
+            // Here is the ajax petition.
+            jQuery.ajax({
+                url: ajax_url, // Here goes our WordPress AJAX endpoint.
+                type: 'post',
+                data: form_data,
+                success: function (response) {
+                    if (!processAjaxActionError(response)) {
+                        removeSpinner('spinner');
+                        // You can craft something here to handle the message return
+                        debugger;
+                        window.location.href = '/wordpress/formulario-de-tabla/';
+                    }
+                },
+                fail: function (err) {
+                    removeSpinner('spinner');
+                    alert("There was an error: " + err);
+                }
+            });
+
+            // This return prevents the submit event to refresh the page.
+            return false;
+        });
+    }
+
+    jQuery(function () {
+        activarPlan();
+    });
+
+
+</script>
