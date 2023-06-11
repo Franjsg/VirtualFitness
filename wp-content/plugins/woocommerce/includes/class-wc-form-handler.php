@@ -1091,7 +1091,10 @@ class WC_Form_Handler {
 					throw new Exception();
 				}
 
-				$new_customer = wc_create_new_customer( sanitize_email( $email ), wc_clean( $username ), $password, $confirpassword, true );
+				$args =[];
+				$args['fecha_nacimiento'] = $_POST['fecha_de_nacimiento'];
+				$args['apodo'] = $_POST['nombre_de_usuario'];
+				$new_customer = wc_create_new_customer( sanitize_email( $email ), wc_clean( $username ), $password, $confirpassword, true, $args);
 
 				if ( is_wp_error( $new_customer ) ) {
 					throw new Exception( $new_customer->get_error_message() );

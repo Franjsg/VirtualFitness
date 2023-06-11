@@ -13,7 +13,26 @@ Description: Used to style WooCommerce plugin
     background-color: transparent;
     font-weight: 400;
     font-size: 14px;
+    border: 1px solid black;
+    box-shadow: 0 3px 0 black;
 }
+
+/* Estilos para el estado hover */
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+    background-color: transparent !important; /* Mantén el color de fondo naranja */
+    /* Agrega otros estilos adicionales para el estado hover */
+    /* Por ejemplo, puedes cambiar el color del texto o aplicar una sombra adicional */
+    color: black;
+    box-shadow: 0 4px 0 black;
+}
+
 .woocommerce ul.products li.product .button {
     margin: 5px 15px 15px 15px;
     border: none;

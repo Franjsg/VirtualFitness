@@ -1,6 +1,4 @@
-/* Tabla ejercicios */
-
-.table.table-striped.table-hover.tabla_ejercicios {
+.tabla_ejercicios {
   border: 4px solid black;
   background-color: #D7D9DD;
   width: 100%;
@@ -9,30 +7,25 @@
   box-shadow: 0 1px 0 black;
 }
 
-.table.table-striped.table-hover.tabla_ejercicios td,
-.table.table-striped.table-hover.tabla_ejercicios th {
+.tabla_ejercicios td,
+.tabla_ejercicios th {
   border: 1px solid;
   padding: 3px 2px;
   border: 3px solid #0e0e0e;
 }
 
-.table.table-striped.table-hover.tabla_ejercicios th {
+.tabla_ejercicios th {
   background-color: black;
-}
-
-.table.table-striped.table-hover.tabla_ejercicios th {
   color: white;
 }
 
-.table.table-striped.table-hover.tabla_ejercicios th.custom-bg-ejercicios {
+.tabla_ejercicios th.custom-bg-ejercicios {
   background-color: #FF593D;
-  color:white;
+  color: white;
 }
 
 
-/* Tabla patologías */
-
-.table.table-striped.table-hover.tabla_patologias {
+.tabla_patologias {
   border: 4px solid black;
   background-color: #D7D9DD;
   width: 100%;
@@ -41,20 +34,24 @@
   box-shadow: 0 1px 0 black;
 }
 
-.table.table-striped.table-hover.tabla_patologias td,
-.table.table-striped.table-hover.tabla_patologias th {
+.tabla_patologias td,
+.tabla_patologias th {
   border: 1px solid;
   padding: 3px 2px;
   border: 3px solid #0e0e0e;
 }
 
-.table.table-striped.table-hover.tabla_patologias th {
+.tabla_patologias th {
   background-color: black;
-}
-
-.table.table-striped.table-hover.tabla_patologias th {
   color: white;
 }
+
+.tabla_patologias th.custom-bg-patologias {
+  background-color: #FF593D;
+  color: white;
+}
+
+
 
 @media (max-width: 768px) {
   table.blueTable th:nth-child(4),
@@ -62,6 +59,19 @@
     min-width: 25px;
   }
 }
+
+.centrar-texto {
+  text-align: center;
+}
+
+#mensaje-cancelar-plan {
+  padding: 8px;
+}
+
+#mensaje-renovar-plan {
+  padding: 8px;
+}
+
 
 /*table.blueTable {
   border: 4px solid black;
@@ -302,6 +312,21 @@ table.greenTable tfoot .links a{
   padding: 10px 0;
 }
 
+#spinner, 
+#spinner2{
+  width: 100px;
+  height: 35px;
+}
+
+#wp-block-search__input-1{
+  width: 60% !important;
+}
+
+#block-2 .wp-element-button:hover{
+  background: white !important;
+  background-color: white !important;
+  color: black  !important;
+}
 
 
 

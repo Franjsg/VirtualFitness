@@ -111,7 +111,17 @@ function enqueue_styles_child_theme()
 }
 add_action('wp_enqueue_scripts', 'enqueue_styles_child_theme');
 
-
+function diasRestantes($fechaFin){
+	$currentDate = new DateTime();
+	$currentDate->setTime(0,0,0);
+	$date2 = new DateTime($fechaFin);
+	$days = 0;
+	if ($currentDate <= $date2) {
+		$diff = $date2->diff($currentDate)->format("%a");
+		$days = intval($diff);   //rounding days
+	}
+	return $days;
+}
 
 function calcularEdad($edadenformatobd)
 {
@@ -183,14 +193,8 @@ function dcms_list_data($content)
 					echo '<p>Fecha inicio del plan: ' . $itemsDatosPlanUsuario[0]->fechaInicio . '</p>';
 					echo '<p>Fecha finalización del plan: ' . $itemsDatosPlanUsuario[0]->fechaFin . '</p>';
 
-					$days = 0;
-					$currentDate = new DateTime();
-					$date2 = new DateTime($itemsDatosPlanUsuario[0]->fechaFin);
-					if ($currentDate <= $date2) {
-						$diff = $date2->diff($currentDate)->format("%a");
-						$days = intval($diff);   //rounding days
-					}
-
+					$days = diasRestantes($itemsDatosPlanUsuario[0]->fechaFin);
+					
 					echo  '<p>Días restantes: ' . $days . '</p>';
 					echo '</div>';
 
@@ -320,24 +324,25 @@ function dcms_list_data($content)
 					$count = 1;
 					foreach ($patologiasUsuario as $item_patologia) {
 						$result_2 .= '<tr>
-							<td>' . $count . '</td>
+							<td class="text-center">' . $count . '</td>
 							<td class="text-center" title="patologia_id: ' . $item_patologia->patologia_id . '">' . $item_patologia->patologia . '</td>
 							</tr>';
 						$count = $count + 1;
 					}
 
-					$template_2 = 	'<table id="tablapatologias" class="table table-striped table-hover tabla_patologias tableseparator">
+					$template_2 = 	'<table id="tablapatologias" class="tabla_patologias tableseparator">
+									<tr>
+										<th colspan="2" class="centrar-texto custom-bg-patologias">PATOLOGÍAS</th>
+									</tr>
 											<tr>
-												<th>#</th>
-												<th class="text-center">Patologías</th>
+												<th class="text-center">#</th>
+												<th class="text-center">Nombre de patología/s</th>
 											</tr>
 											{data2}
 										</table>';
 
 					echo $content . str_replace('{data2}', $result_2, $template_2);
-				} else {
-					echo ("No tienes patologias registradas");
-				}
+				} 
 
 				// Tabla ejercicios
 				if (count($itemsDatosPlanUsuario) > 0) {
@@ -362,44 +367,44 @@ function dcms_list_data($content)
 									}
 
 									$result_2 .= '<tr>
-    									<td class="text-center">' . $count . '</td>
-    									<td class="text-center" title="Nombre del ejercicio: ' . $item_ejercicio->nombreEjer . '">' . $item_ejercicio->nombreEjer . '</td>
-    									<td class="text-center" title="Categoría: ' . $item_ejercicio->nombreCategoria . '">' . $item_ejercicio->nombreCategoria . '</td>
-    									<td class="text-center" title="Serie y repeticiones: ' . $serie . '">' . $serie . '</td>
+									<td>' . $count . '</td>
+									<td class="text-center" title="Nombre del ejercicio: ' . $item_ejercicio->nombreEjer . '">' . $item_ejercicio->nombreEjer . '</td>
+									<td class="text-center" title="Categoria: ' . $item_ejercicio->nombreCategoria . '">' . $item_ejercicio->nombreCategoria . '</td>
+									<td class="text-center"title="Series y repeticiones: ' . $serie . '">' . $serie . '</td>
 									</tr>';
 									$count = $count + 1;
 								}
 
-								$template_2 = '<table id="tablaejercicios" class="table table-striped table-hover tabla_ejercicios">
-    							<tr>
-        							<th class="text-center custom-bg-ejercicios" colspan="4">PROGRAMA DE ENTRENAMIENTO</th>
-    							</tr>
-    							<tr>
-        							<th class="text-center">#</th>
-        							<th class="text-center">Nombre del ejercicio</th>
-        							<th class="text-center">Categoría</th>
-        							<th class="text-center">Serie y repeticiones</th>
-    							</tr>
-    						{data2}
-							</table>';
+								$template_2 = 	'<table id="tablaejercicios" class="tabla_ejercicios">
+													<tr>
+														<th colspan="4" class="centrar-texto custom-bg-ejercicios">PROGRAMA DE ENTRENAMIENTO</th>
+													</tr>
+													<tr>
+														<th class="text-center">#</th>
+														<th class="text-center">Nombre del ejercicio</th>
+														<th class="text-center">Categoría</th>
+														<th class="text-center">Series y repeticiones</th>
+													</tr>
+													{data2}
+												</table>';
 
-							echo $content . str_replace('{data2}', $result_2, $template_2);
+								echo $content . str_replace('{data2}', $result_2, $template_2);
 
-								
 								echo '<br>';
-								echo '<div onclick="generatePdf()" class="save-as-pdf-pdfcrowd-button-wrap pdfcrowd-remove save-as-pdf-pdfcrowd-reset" style="text-align: center; "><div class="" style="margin-top: 6px; margin-right: 6px; margin-bottom: 6px; margin-left: 6px; padding-top: 6px; padding-right: 6px; padding-bottom: 6px; padding-left: 6px; font-size: 14px; font-weight: bold; color: #fff; background-color: #24943a; border-color: #24943a; border-style: solid; border-width: 1px; border-radius: 3px; box-shadow: 0 3px 0 #013220;"><img style="width: 24px; height: 24px;" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTIuNTA5IDAuODR2Ni4yNjU3bDUuNzU0MSAwLjEwNDE0eiIgZmlsbD0iIzY5Njk2OSIgc3Ryb2tlLXdpZHRoPSIwIi8+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wMTE4IDAgMCAxLjAxMDYgLTIuMTYyMSAtMy4yMDI0KSIgZmlsbC1ydWxlPSJldmVub2RkIj48cG9seWxpbmUgcG9pbnRzPSIyMC41IDI5IDMgMjkgMyA0IDE0LjUgNCAxNC41IDEwLjIgMjAuNSAxMC4yIDIwLjUgMjkiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PHBvbHlsaW5lIHBvaW50cz0iMjAgMTQgMzEgMTQgMzEgMjUgMjAgMjUiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PGcgaWQ9Imljb24tNzAtZG9jdW1lbnQtZmlsZS1wZGYiIGZpbGw9IiM5MjkyOTIiPjxwYXRoIGlkPSJkb2N1bWVudC1maWxlLXBkZiIgZD0ibTI1IDE5di0yaDR2LTFoLTV2N2gxdi0zaDN2LTF6bS0xMy0xdjVoMXYtM2gxLjk5NTFjMS4xMDczIDAgMi4wMDQ5LTAuODg3NzMgMi4wMDQ5LTIgMC0xLjEwNDYtMC44OTM5LTItMi4wMDQ5LTJoLTIuOTk1MXptMS0xdjJoMi4wMDFjMC41NTE3MSAwIDAuOTk4OTYtMC40NDM4NiAwLjk5ODk2LTEgMC0wLjU1MjI4LTAuNDQyNjYtMS0wLjk5ODk2LTF6bTUtMXY3aDIuOTk1MWMxLjEwNzMgMCAyLjAwNDktMC44ODY1NiAyLjAwNDktMi4wMDU5di0yLjk4ODJjMC0xLjEwNzgtMC44OTM5LTIuMDA1OS0yLjAwNDktMi4wMDU5em0xIDF2NWgyLjAwMWMwLjU1MTcxIDAgMC45OTg5Ni0wLjQ0MzcyIDAuOTk4OTYtMC45OTk4MXYtMy4wMDA0YzAtMC41NTIxOC0wLjQ0MjY2LTAuOTk5ODEtMC45OTg5Ni0wLjk5OTgxeiIgZmlsbD0iI2VhNGMzYSIvPjwvZz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjkuNjc1IC0uMSkiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzkyOTI5MiI+PHBhdGggZD0ibS0xMC42NzUgMTAuMXYtM2wtNi03aC0xMC45OTdjLTEuMTA2MSAwLTIuMDAyOCAwLjg5ODM0LTIuMDAyOCAyLjAwNzN2MjIuOTg1YzAgMS4xMDg2IDAuODkwOTIgMi4wMDczIDEuOTk3NCAyLjAwNzNoMTUuMDA1YzEuMTAzMSAwIDEuOTk3NC0wLjg5ODIxIDEuOTk3NC0xLjk5MDh2LTIuMDA5Mmg3Ljk5MzJjMS42NjA2IDAgMy4wMDY4LTEuMzQyMyAzLjAwNjgtMi45OTg4di03LjAwMjRjMC0xLjY1NjItMS4zMzYtMi45OTg4LTMuMDA2OC0yLjk5ODh6bS0xIDEzdjIuMDA2NmMwIDAuNTQ4NDUtMC40NDc3IDAuOTkzNC0wLjk5OTk2IDAuOTkzNGgtMTVjLTAuNTQ1MjUgMC0wLjk5OTk2LTAuNDQ1NjgtMC45OTk5Ni0wLjk5NTQ2di0yMy4wMDljMC0wLjU0MDE5IDAuNDQ1NzQtMC45OTU0NiAwLjk5NTU4LTAuOTk1NDZoMTAuMDA0djQuOTk0MWMwIDEuMTE5NCAwLjg5NDUgMi4wMDU5IDEuOTk3OSAyLjAwNTloNC4wMDIxdjJoLTcuOTkzMmMtMS42NjA2IDAtMy4wMDY4IDEuMzQyMy0zLjAwNjggMi45OTg4djcuMDAyNGMwIDEuNjU2MiAxLjMzNiAyLjk5ODggMy4wMDY4IDIuOTk4OHptLTUtMjEuNXY0LjQ5MTJjMCAwLjU1NzE0IDAuNDUwNjUgMS4wMDg4IDAuOTk2NzQgMS4wMDg4aDMuNzAzMnptLTMuMDA1NCA5LjVjLTEuMTAxNiAwLTEuOTk0NiAwLjkwMDE4LTEuOTk0NiAxLjk5MnY3LjAxNmMwIDEuMTAwMiAwLjkwMjM0IDEuOTkyIDEuOTk0NiAxLjk5MmgxNy4wMTFjMS4xMDE2IDAgMS45OTQ2LTAuOTAwMTggMS45OTQ2LTEuOTkydi03LjAxNmMwLTEuMTAwMi0wLjkwMjM0LTEuOTkyLTEuOTk0Ni0xLjk5MnoiLz48L2c+PC9nPjxwYXRoIGQ9Im0zLjE1OTggNC4xMzY3aDciIGZpbGw9IiM2OTY5NjkiIHN0cm9rZT0iIzY5Njk2OSIgc3Ryb2tlLXdpZHRoPSIxcHgiLz48cGF0aCBkPSJtNC4xNTk4IDcuMTM2N2g2IiBmaWxsPSIjNjk2OTY5IiBzdHJva2U9IiM2OTY5NjkiIHN0cm9rZS13aWR0aD0iMXB4Ii8+PC9zdmc+Cg==">&nbsp;Guardar tabla</div></div>';
+
+								echo '<div onclick="generatePdf()" class="save-as-pdf-pdfcrowd-button-wrap pdfcrowd-remove save-as-pdf-pdfcrowd-reset" style="text-align: center;"><div class="" style="margin-top: 6px; margin-right: 6px; margin-bottom: 6px; margin-left: 6px; padding-top: 6px; padding-right: 6px; padding-bottom: 6px; padding-left: 6px; font-size: 14px; font-weight: bold; color: #fff; background-color: #107e19; border: 1px solid #063e0f; box-shadow: 0 3px 0 #063e0f; border-radius: 3px; text-align: center; text-decoration: none; cursor: pointer;"><img style="width: 24px; height: 24px;" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTIuNTA5IDAuODR2Ni4yNjU3bDUuNzU0MSAwLjEwNDE0eiIgZmlsbD0iIzY5Njk2OSIgc3Ryb2tlLXdpZHRoPSIwIi8+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wMTE4IDAgMCAxLjAxMDYgLTIuMTYyMSAtMy4yMDI0KSIgZmlsbC1ydWxlPSJldmVub2RkIj48cG9seWxpbmUgcG9pbnRzPSIyMC41IDI5IDMgMjkgMyA0IDE0LjUgNCAxNC41IDEwLjIgMjAuNSAxMC4yIDIwLjUgMjkiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PHBvbHlsaW5lIHBvaW50cz0iMjAgMTQgMzEgMTQgMzEgMjUgMjAgMjUiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PGcgaWQ9Imljb24tNzAtZG9jdW1lbnQtZmlsZS1wZGYiIGZpbGw9IiM5MjkyOTIiPjxwYXRoIGlkPSJkb2N1bWVudC1maWxlLXBkZiIgZD0ibTI1IDE5di0yaDR2LTFoLTV2N2gxdi0zaDN2LTF6bS0xMy0xdjVoMXYtM2gxLjk5NTFjMS4xMDczIDAgMi4wMDQ5LTAuODg3NzMgMi4wMDQ5LTIgMC0xLjEwNDYtMC44OTM5LTItMi4wMDQ5LTJoLTIuOTk1MXptMS0xdjJoMi4wMDFjMC41NTE3MSAwIDAuOTk4OTYtMC40NDM4NiAwLjk5ODk2LTEgMC0wLjU1MjI4LTAuNDQyNjYtMS0wLjk5ODk2LTF6bTUtMXY3aDIuOTk1MWMxLjEwNzMgMCAyLjAwNDktMC44ODY1NiAyLjAwNDktMi4wMDU5di0yLjk4ODJjMC0xLjEwNzgtMC44OTM5LTIuMDA1OS0yLjAwNDktMi4wMDU5em0xIDF2NWgyLjAwMWMwLjU1MTcxIDAgMC45OTg5Ni0wLjQ0MzcyIDAuOTk4OTYtMC45OTk4MXYtMy4wMDA0YzAtMC41NTIxOC0wLjQ0MjY2LTAuOTk5ODEtMC45OTg5Ni0wLjk5OTgxeiIgZmlsbD0iI2VhNGMzYSIvPjwvZz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjkuNjc1IC0uMSkiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzkyOTI5MiI+PHBhdGggZD0ibS0xMC42NzUgMTAuMXYtM2wtNi03aC0xMC45OTdjLTEuMTA2MSAwLTIuMDAyOCAwLjg5ODM0LTIuMDAyOCAyLjAwNzN2MjIuOTg1YzAgMS4xMDg2IDAuODkwOTIgMi4wMDczIDEuOTk3NCAyLjAwNzNoMTUuMDA1YzEuMTAzMSAwIDEuOTk3NC0wLjg5ODIxIDEuOTk3NC0xLjk5MDh2LTIuMDA5Mmg3Ljk5MzJjMS42NjA2IDAgMy4wMDY4LTEuMzQyMyAzLjAwNjgtMi45OTg4di03LjAwMjRjMC0xLjY1NjItMS4zMzYtMi45OTg4LTMuMDA2OC0yLjk5ODh6bS0xIDEzdjIuMDA2NmMwIDAuNTQ4NDUtMC40NDc3IDAuOTkzNC0wLjk5OTk2IDAuOTkzNGgtMTVjLTAuNTQ1MjUgMC0wLjk5OTk2LTAuNDQ1NjgtMC45OTk5Ni0wLjk5NTQ2di0yMy4wMDljMC0wLjU0MDE5IDAuNDQ1NzQtMC45OTU0NiAwLjk5NTU4LTAuOTk1NDZoMTAuMDA0djQuOTk0MWMwIDEuMTE5NCAwLjg5NDUgMi4wMDU5IDEuOTk3OSAyLjAwNTloNC4wMDIxdjJoLTcuOTkzMmMtMS42NjA2IDAtMy4wMDY4IDEuMzQyMy0zLjAwNjggMi45OTg4djcuMDAyNGMwIDEuNjU2MiAxLjMzNiAyLjk5ODggMy4wMDY4IDIuOTk4OHptLTUtMjEuNXY0LjQ5MTJjMCAwLjU1NzE0IDAuNDUwNjUgMS4wMDg4IDAuOTk2NzQgMS4wMDg4aDMuNzAzMnptLTMuMDA1NCA5LjVjLTEuMTAxNiAwLTEuOTk0NiAwLjkwMDE4LTEuOTk0NiAxLjk5MnY3LjAxNmMwIDEuMTAwMiAwLjkwMjM0IDEuOTkyIDEuOTk0NiAxLjk5MmgxNy4wMTFjMS4xMDE2IDAgMS45OTQ2LTAuOTAwMTggMS45OTQ2LTEuOTkydi03LjAxNmMwLTEuMTAwMi0wLjkwMjM0LTEuOTkyLTEuOTk0Ni0xLjk5MnoiLz48L2c+PC9nPjxwYXRoIGQ9Im0zLjE1OTggNC4xMzY3aDciIGZpbGw9IiM2OTY5NjkiIHN0cm9rZT0iIzY5Njk2OSIgc3Ryb2tlLXdpZHRoPSIxcHgiLz48cGF0aCBkPSJtNC4xNTk4IDcuMTM2N2g2IiBmaWxsPSIjNjk2OTY5IiBzdHJva2U9IiM2OTY5NjkiIHN0cm9rZS13aWR0aD0iMXB4Ii8+PC9zdmc+Cg==">&nbsp;Guardar tabla</div></div>';
 								echo '<div id="loadpdf"></div>';
 							} else {
-								echo ("No hay ejercicios registrados");
+								echo ("No hay ejercicios registrados.");
 							}
 						} else {
-							echo ("Al estar caducado el plan no se muestra ningún ejercicio");
+							echo ("Al estar caducado el plan no se muestra ningún ejercicio.");
 						}
 					} else {
-						echo ("No hay ejercicios registrados");
+						echo ("No hay ejercicios registrados.");
 					}
 				} else {
-					echo ("El usuario no tiene contratado ningún plan");
+					echo ("El usuario no tiene contratado ningún plan.");
 				}
 			} else {
 				echo 'Usuario no registrado.';
@@ -484,9 +489,12 @@ function send_form()
 				crearPatologiasUsuario($dataForm['enfermedad']);
 				$data['patologiaUsuario'] = patologiasUsuario($current_user->ID);
 
+				$days = diasRestantes($itemsDatosPlanUsuario[0]->fechaFin);
+				
 				$data['plan'] =  $itemsDatosPlanUsuario[0]->plan;
 				$data['fechaInicio'] =  $itemsDatosPlanUsuario[0]->fechaInicio;
 				$data['fechaFin'] =  $itemsDatosPlanUsuario[0]->fechaFin;
+				$data['diasRestantes'] =  $days;
 				$data['activo'] =  $itemsDatosPlanUsuario[0]->activo;
 				$data['activo'] =  $itemsDatosPlanUsuario[0]->pagado;
 				$data['ejercicios'] =  ejerciciosUsuario($dataForm, $current_user->ID, $itemsDatosPlanUsuario[0]);
@@ -591,17 +599,17 @@ function crearPatologiasUsuario($nombrePat)
 		$data['usuario_id'] = $current_user->ID;
 		$data['patologia_id'] = (int)$patId;
 
-		if (usuarioTienePatologia($patId) == 0) {
+		if (usuarioTienePatologia($patId, $current_user->ID) == 0) {
 			$wpdb->insert('usuarios_patologias', $data);
 		}
 	}
 }
 
-function usuarioTienePatologia($patId)
+function usuarioTienePatologia($patId, $idUsuario)
 {
 	global $wpdb;
 
-	$queryPatologia = 'SELECT count(*) as total FROM usuarios_patologias WHERE patologia_id = ' . $patId;
+	$queryPatologia = 'SELECT count(*) as total FROM usuarios_patologias WHERE patologia_id = ' . $patId. ' AND usuario_id = ' . $idUsuario;
 	$itemsPatologia = $wpdb->get_results($queryPatologia);
 
 	return (int)$itemsPatologia[0]->total > 0;
@@ -635,13 +643,13 @@ function hayEjercicioEntrenador($idEntrenamiento)
 	return $hay;
 }
 
-function buscarSerie($idEjercicio)
+function buscarSerie($idEjercicio, $plan)
 {
 	global $wpdb;
 
 	$queryEjercicios = 'SELECT *';
 	$queryEjercicios .= ' FROM serie AS ser';
-	$queryEjercicios .= ' WHERE ser.id_ejercicio = ' . $idEjercicio;
+	$queryEjercicios .= ' WHERE ser.id_ejercicio = ' . $idEjercicio. ' AND plan LIKE "'.$plan.'"';
 
 	$itemsSerie = $wpdb->get_results($queryEjercicios);
 
@@ -747,6 +755,21 @@ function planActual($idUsuario)
 	return $itemsDatosPlanUsuario;
 }
 
+function planUsuario($idUsuario)
+{
+	global $wpdb;
+
+	if ($idUsuario === '') {
+		$current_user = wp_get_current_user();
+		$idUsuario = $current_user->ID;
+	}
+
+	$queryDatosPlanUsuario = 'SELECT * FROM entrenamiento WHERE id_usuario =' . $idUsuario;
+	$itemsDatosPlanUsuario = $wpdb->get_results($queryDatosPlanUsuario);
+
+	return $itemsDatosPlanUsuario;
+}
+
 function guardarEjerciciosActuales($idEntrenamiento, $idUsuario)
 {
 
@@ -754,6 +777,7 @@ function guardarEjerciciosActuales($idEntrenamiento, $idUsuario)
 		// Guardarlos
 		global $wpdb;
 		$itemEjercicios = buscarEjercicios($idUsuario);
+		$planUsuario = planUsuario($idUsuario);
 
 		foreach ($itemEjercicios as $ejer) {
 			$data = [];
@@ -761,7 +785,7 @@ function guardarEjerciciosActuales($idEntrenamiento, $idUsuario)
 			// Datos a insertar
 			$data['id_ejercicio'] = $ejer->id_ejercicio;
 			$data['id_entrenamiento'] = (int)$idEntrenamiento;
-			$data['entNumeroYRepeticiones'] = buscarSerie($ejer->id_ejercicio);
+			$data['entNumeroYRepeticiones'] = buscarSerie($ejer->id_ejercicio, $planUsuario[0]->plan);
 
 			$wpdb->insert('ejercicio_entrenador', $data);
 		}
@@ -813,14 +837,16 @@ function action_borrarEjercicio()
 		if (!hayEjercicioEntrenador($idEntrenamiento)) {
 			// Guardarlos
 			$itemEjercicios = buscarEjercicios($idUsuario);
+			$planUsuario = planUsuario($idUsuario);
 
 			foreach ($itemEjercicios as $ejer) {
 				$data = [];
 
 				// Datos a insertar
-				$data['id_ejercicio'] = (int)$idEjercicio;
+				$data['id_ejercicio'] = (int)$ejer->id_ejercicio;
 				$data['id_entrenamiento'] = (int)$idEntrenamiento;
-
+				$data['entNumeroYRepeticiones'] = buscarSerie($ejer->id_ejercicio, $planUsuario[0]->plan);
+				
 				$wpdb->insert('ejercicio_entrenador', $data);
 			}
 
@@ -864,9 +890,10 @@ function action_incluirEjercicio()
 		$serie = $_POST['serie'];
 
 		guardarEjerciciosActuales($idEntrenamiento, $idUsuario);
+		$planUsuario = planUsuario($idUsuario);
 
 		if ($serie == null) {
-			$serie = buscarSerie($idEjercicio);
+			$serie = buscarSerie($idEjercicio, $planUsuario[0]->plan);
 		}
 
 		$data = [];
@@ -960,16 +987,25 @@ function action_buscarEjercicios()
 	if (checkPermisionAjaxAction('action_buscarEjercicios')) {
 
 		$idUsuario = $_POST['idUsuario'];
+		$data = [];
 
 		$itemsEjercicios = buscarEjercicios($idUsuario);
 		$itemsDatosPlanUsuario = planActual($idUsuario);
-		$data = [];
+		$data['plan'] =  $itemsDatosPlanUsuario[0];
+		if($itemsDatosPlanUsuario == null){
+			$planUsuario = planUsuario($idUsuario);
+			$data['modificado'] = $planUsuario[0]->modificado;
+		}else{
+			$data['modificado'] = $itemsDatosPlanUsuario[0]->modificado;
+		}
 		$data['ejercicios'] = $itemsEjercicios;
 		$data['patologiaUsuario'] = patologiasUsuario($idUsuario);
-
-		$data['plan'] =  $itemsDatosPlanUsuario[0]->plan;
-		$data['fechaInicio'] =  $itemsDatosPlanUsuario[0]->fechaInicio;
-		$data['fechaFin'] =  $itemsDatosPlanUsuario[0]->fechaFin;
+		
+		$days = diasRestantes($itemsDatosPlanUsuario[0]->fechaFin);
+		
+		
+		
+		$data['diasRestantes'] =  $days;
 		$data['ejerciciosEntrenador'] = ejerciciosParaEntrenador($itemsEjercicios);
 		$data['hasError'] = false;
 
@@ -1062,11 +1098,12 @@ function action_pagar()
 			$data['activo'] = false;
 			$data['pagado'] = true;
 			$data['modificado'] = false;
-			$data['fechaFin'] = null;
-			$data['fechaInicio'] = null;
 
-			$plan = planAnterior($current_user->ID);
+			$plan = planUsuario($current_user->ID);
 			if (count($plan) == 0) {
+				$data['fechaFin'] = null;
+				$data['fechaInicio'] = null;
+
 				$wpdb->insert('entrenamiento', $data);
 			} else {
 				$wpdb->update('entrenamiento', $data, array('id_usuario' => $plan[0]->id_usuario, 'id_entrenamiento' => $plan[0]->id_entrenamiento));
@@ -1098,9 +1135,9 @@ function action_activar_plan()
 		global $wpdb;
 		$current_user = wp_get_current_user();
 		$data = [];
-		$plan = planAnterior($current_user->ID);
+		$plan = planUsuario($current_user->ID);
 
-		if (count($plan) > 0 && $plan[0]->fechaInicio == null) {
+		if (count($plan) > 0) {
 			$data['fechaInicio'] = date("Y/m/d");
 			$data['fechaFin'] = date('Y-m-d', strtotime($data['fechaInicio'] . ' +30 days'));
 		}
@@ -1139,12 +1176,18 @@ function action_entrenamiento()
 			$itemsDatosPlanUsuario = planActual($current_user->ID);
 
 			if (count($itemsDatosPlanUsuario) != 0) {
+				$days = diasRestantes($itemsDatosPlanUsuario[0]->fechaFin);
+				
+				$data['caducado'] =  false;
 				$data['plan'] =  $itemsDatosPlanUsuario[0]->plan;
 				$data['fechaInicio'] =  $itemsDatosPlanUsuario[0]->fechaInicio;
 				$data['fechaFin'] =  $itemsDatosPlanUsuario[0]->fechaFin;
+				$data['diasRestantes'] =  $days;
 				$data['activo'] =  $itemsDatosPlanUsuario[0]->activo;
 				$data['ejercicios'] = buscarEjercicios($current_user->ID);
 				$data['patologiaUsuario'] = patologiasUsuario($current_user->ID);
+			}else{
+				$data['caducado'] =  true;
 			}
 		}
 
@@ -1188,6 +1231,12 @@ function action_renovar_plan()
 		$data['activo'] = false;
 
 		$wpdb->update('entrenamiento', $data, array('id_usuario' => $current_user->ID));
+
+		// Para que al renovar el plan te deje rellenar el formulario de tabla.
+		$dataUser = [];
+		$dataUser['edad'] = null;
+		$wpdb->update('wp_users', $dataUser, array('ID' => $current_user->ID));
+		
 
 		$dataR = [];
 		$dataR['plan'] = $plan[0]->plan;
@@ -1389,7 +1438,7 @@ function action_usuariospaginados()
 		$queryUsuarioEntrenamiento =
 			'SELECT * FROM wp_users AS u
 			 INNER JOIN entrenamiento AS e ON e.id_usuario = u.ID
-			 WHERE e.pagado = 1
+			 WHERE e.pagado = 1 AND activo = 1
 			 LIMIT ' . $size . ' OFFSET ' . ($page * $size);
 		$itemsUsuarioEntrenamiento = $wpdb->get_results($queryUsuarioEntrenamiento);
 		$data['usuarios'] = $itemsUsuarioEntrenamiento;
@@ -1427,7 +1476,7 @@ function action_mostrarPlanEntrenamiento()
 	$planPagado = planPagado($current_user->ID);
 
 	$data['show'] = false;
-	if (($rol == 'administrator' || ($rol == 'subscriber' && count($planPagado) >= 1))) {
+	if (($rol == 'entrenador' || $rol == 'administrator' || ($rol == 'subscriber' && count($planPagado) >= 1))) {
 		$data['show'] = true;
 	}
 	echo json_encode($data);
@@ -1448,9 +1497,8 @@ function action_generatePdf()
 
 		// instantiate and use the dompdf class
 		$dompdf = new Dompdf();
-		$html = 
-		'<style>
-		.table.table-striped.table-hover.tabla_ejercicios {
+		$html = '<style>
+		.tabla_ejercicios {
 			border: 4px solid black;
 			background-color: #D7D9DD;
 			width: 100%;
@@ -1459,51 +1507,73 @@ function action_generatePdf()
 			box-shadow: 0 1px 0 black;
 		  }
 		  
-		  .table.table-striped.table-hover.tabla_ejercicios td,
-		  .table.table-striped.table-hover.tabla_ejercicios th {
+		  .tabla_ejercicios td,
+		  .tabla_ejercicios th {
 			border: 1px solid;
 			padding: 3px 2px;
 			border: 3px solid #0e0e0e;
 		  }
 		  
-		  .table.table-striped.table-hover.tabla_ejercicios th {
+		  .tabla_ejercicios th {
 			background-color: black;
-		  }
-		  
-		  .table.table-striped.table-hover.tabla_ejercicios th {
 			color: white;
 		  }
 		  
-		  .table.table-striped.table-hover.tabla_ejercicios th.custom-bg-ejercicios {
+		  .tabla_ejercicios th.custom-bg-ejercicios {
 			background-color: #FF593D;
-			color:white;
-		  }		  
-		</style>';
-
+			color: white;
+		  }
+		  
+		  
+		  .tabla_patologias {
+			border: 4px solid black;
+			background-color: #D7D9DD;
+			width: 100%;
+			text-align: left;
+			border-collapse: collapse;
+			box-shadow: 0 1px 0 black;
+		  }
+		  
+		  .tabla_patologias td,
+		  .tabla_patologias th {
+			border: 1px solid;
+			padding: 3px 2px;
+			border: 3px solid #0e0e0e;
+		  }
+		  
+		  .tabla_patologias th {
+			background-color: black;
+			color: white;
+		  }
+		  
+		  .centrar-texto {
+			text-align: center;
+		  }
+	</style>';
 		$html .= '<div><h3>Rutina personalizada para: ' . $current_user->user_nicename . '</h3></div>';
 		$html .= '<div><h3>Plan: ' . $plan[0]->plan . '</h3></div>';
-		$html .= '<div><h3>Fecha de inicio del plan: ' . $plan[0]->fechaInicio . '</h3></div>';
-		$html .= '<div><h3>Fecha de finalización del plan: ' . $plan[0]->fechaFin . '</h3></div>';
+		$html .= '<div><h3>Fecha inicio del plan: ' . $plan[0]->fechaInicio . '</h3></div>';
+		$html .= '<div><h3>Fecha finalización del plan: ' . $plan[0]->fechaFin . '</h3></div>';
 
 		$ejerciciosStr = '';
 		if (count($ejercicios) > 0) {
-			$ejerciciosStr = '<table id="tablaejercicios" class="table table-striped table-hover tabla_ejercicios">';
+			$ejerciciosStr = '<table id="tablaejercicios" class="tabla_ejercicios">';
 			$ejerciciosStr .= '<tr>';
-			$ejerciciosStr .= '<th colspan="4" class="text-center custom-bg-ejercicios">PROGRAMA DE ENTRENAMIENTO</th>'; 
+			$ejerciciosStr .= '<th colspan="4" class="centrar-texto custom-bg-ejercicios">PROGRAMA DE ENTRENAMIENTO</th>';
 			$ejerciciosStr .= '</tr>';
 			$ejerciciosStr .= '<tr>';
-			$ejerciciosStr .= '<th>#</th>';
-			$ejerciciosStr .= '<th class="text-center">Nombre del ejercicio</th>';
-			$ejerciciosStr .= '<th class="text-center">Categoría</th>';
-			$ejerciciosStr .= '<th class="text-center">Serie y repeticiones</th>';
+			$ejerciciosStr .= '<th class="centrar-texto">#</th>';
+			$ejerciciosStr .= '<th class="centrar-texto">Nombre del ejercicio</th>';
+			$ejerciciosStr .= '<th class="centrar-texto">Categoría</th>';
+			$ejerciciosStr .= '<th class="centrar-texto">Series y repeticiones</th>';
 			$ejerciciosStr .= '</tr>';
 
 			$index = 0;
 			foreach ($ejercicios as $ejer) {
 				$ejerciciosStr .= '<tr>';
-				$ejerciciosStr .= '<td style="text-align: center;">' . ($index + 1) . '</td>';
-				$ejerciciosStr .= '<td style="text-align: center;">' . $ejer->nombreEjer . '</td>';
-				$ejerciciosStr .= '<td style="text-align: center;">' . $ejer->nombreCategoria . '</td>';
+				$ejerciciosStr .= '<td class="centrar-texto">' . ($index + 1) . '</td>';
+				$ejerciciosStr .= '<td class="centrar-texto">' . $ejer->nombreEjer . '</td>';
+				$ejerciciosStr .= '<td class="centrar-texto">' . $ejer->nombreCategoria . '</td>';
 
 				if (property_exists($ejer, 'entNumeroYRepeticiones')) {
 					$serie = $ejer->entNumeroYRepeticiones;
@@ -1511,7 +1581,7 @@ function action_generatePdf()
 					$serie = $ejer->numeroYRepeticiones;
 				}
 
-				$ejerciciosStr .= '<td style="text-align: center;">' . $serie . '</td>';
+				$ejerciciosStr .= '<td>' . $serie . '</td>';
 				$ejerciciosStr .= '</tr>';
 
 				$index++;
@@ -1547,7 +1617,6 @@ function action_generatePdf()
 function mostrar_menu_lista_usuarios($items, $args)
 {
 	// Comprobamos si el usuario tiene el rol de "Entrenador"
-
 	if ($args->theme_location == 'main_menu' && is_user_logged_in() && (current_user_can('entrenador') || current_user_can('administrator'))) {
 		// Agregamos el enlace de la página de lista de usuarios al menú
 		$url = get_permalink('822');
@@ -1691,12 +1760,5 @@ function currentPage()
 
 	return $pagename;
 }
-
-function custom_favicon() {
-    $favicon_url = get_template_directory_uri() . 'logo.ico';
-    echo '<link rel="icon" href="' . esc_url($favicon_url) . '" type="image/x-icon">';
-}
-add_action('wp_head', 'custom_favicon');
-
 
 

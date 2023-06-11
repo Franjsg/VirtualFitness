@@ -17,7 +17,21 @@
         border: 1px solid #291291;
         box-shadow: 0 2px 0 #291291;
     }
+
+    #form-activar-plan{
+        padding-top: 20px;
+    }
+
+    #divInfo{
+        padding-bottom: 30px;
+    }
 </style>
+
+<div id="divInfo">
+    <p>¡Tu pago se ha realizado con éxito!</p>
+    <p>Ahora puede activar su plan de entrenamiento o activarlo más tarde dirigiéndose a su cuenta.</p>
+</div>
+<button id="activar-mas-tarde" type="button" class="btn btn-primary wpforms-submit">Activar plan más tarde</button>
 
 <form id="form-activar-plan" action="" method="post">
     <input type="hidden" name="action" value="action_activar_plan"
@@ -62,8 +76,18 @@
         });
     }
 
+    function activarMasTarde(){
+        jQuery('#activar-mas-tarde').click(goToMyAccount);
+    }
+
+    function goToMyAccount(){
+        location.href = 'wordpress/my-account/';
+    }
+
     jQuery(function () {
         activarPlan();
+
+        activarMasTarde();
     });
 
 

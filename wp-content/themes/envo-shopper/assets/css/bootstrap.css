@@ -141,6 +141,14 @@ input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
 }
+
+input[type="submit"]:hover {
+  background-color: transparent !important; 
+    color: black !important;
+    box-shadow: 0 4px 0 black !important;
+  
+}
+
 button[disabled],
 html input[disabled] {
   cursor: default;

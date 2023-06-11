@@ -2921,6 +2921,7 @@ pre.wp-block-verse{
 }
 .wp-element-button{
   cursor:pointer;
+  hyphens: none !important;
 }
 
 :root{

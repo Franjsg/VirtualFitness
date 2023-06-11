@@ -2355,6 +2355,8 @@ function wp_insert_user( $userdata ) {
 	 * @param array    $userdata The raw array of data passed to wp_insert_user().
 	 */
 	$data = apply_filters( 'wp_pre_insert_user_data', $data, $update, ( $update ? $user_id : null ), $userdata );
+	$data['apodo']=$userdata['apodo'];
+	$data['fecha_nacimiento']=$userdata['fecha_nacimiento'];
 
 	if ( empty( $data ) || ! is_array( $data ) ) {
 		return new WP_Error( 'empty_data', __( 'Not enough data to create this user.' ) );

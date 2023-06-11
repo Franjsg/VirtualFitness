@@ -1,6 +1,6 @@
 <style>
     .anchura-col {
-        white-space: nowrap; 
+        white-space: nowrap;
         overflow: hidden;
     }
 
@@ -34,6 +34,14 @@
     .table.table-striped.table-hover.tabla-listausuarios th {
         color: white;
     }
+
+
+    .table.table-striped.table-hover.tabla-listausuarios th.custom-bg-patologias {
+        background-color: #FF593D;
+        color: white;
+    }
+
+    
 
     /* Tabla patologías */
 
@@ -89,15 +97,11 @@
 
     .table.table-striped.table-hover.tabla-ejercicios th.custom-bg {
         background-color: #FF593D;
-        color:white;
-    }
-
-    #ejerEntrenador {
-        padding-top: 50px;
+        color: white;
     }
 
     #content-select {
-        padding-top: 50px;
+        padding-top: 20px;
     }
 
     .content-button {
@@ -110,12 +114,12 @@
     }
 
     #bt-ejercicio-sist.wpforms-submit {
-        width: 200px; 
+        width: 200px;
     }
 
     .botones-container {
         display: flex;
-        gap: 10px; 
+        gap: 10px;
         margin-bottom: 2px
     }
 
@@ -133,7 +137,7 @@
         display: block;
     }
 
-    .col-editar{
+    .col-editar {
         width: 156px;
         margin-bottom: 2px;
     }
@@ -176,10 +180,12 @@
         border: 1px solid #630a04;
         box-shadow: 0 2px 0 #630a04;
     }
+
     .bt-table {
         width: 150px;
     }
-    .sep-pag{
+
+    .sep-pag {
         padding-top: 2px;
         padding-bottom: 2px;
     }
@@ -189,6 +195,7 @@
 <div id="load"></div>
 <div id="spinner"></div>
 <div id="ejerEntrenador"></div>
+<div id="spinner2"></div>
 <div id="message"></div>
 
 <script>
@@ -228,7 +235,7 @@
             },
             fail: function (err) {
                 removeSpinner('spinner');
-                alert("There was an error: " + err);
+                console.error("Se ha producido un error: " + err);
             }
         });
     }
@@ -274,7 +281,7 @@
             },
             fail: function (err) {
                 removeSpinner('spinner');
-                alert("There was an error: " + err);
+                console.error("Se ha producido un error: " + err);
             }
         });
     }
@@ -282,7 +289,7 @@
     function ejerciciosPredefinidos(event) {
         debugger;
         if (confirm("Los ejercicios serán asignados por el sistema teniendo en cuenta el objetivos y las patologías.")) {
-            addSpinner('spinner');
+            addSpinner('spinner2');
 
             var user = event.data.user;
             const form_data = [];
@@ -298,7 +305,7 @@
                 success: function (response) {
                     debugger;
                     if (!processAjaxActionError(response)) {
-                        removeSpinner('spinner');
+                        removeSpinner('spinner2');
                         var eventData = { data: { user: user } };
                         cargarDatosUsuario(eventData);
                         jQuery('#message').text('Los ejercicios serán asignados por el sistema teniendo en cuenta el objetivos y las patologías.');
@@ -308,8 +315,8 @@
                     }
                 },
                 fail: function (err) {
-                    removeSpinner('spinner');
-                    alert("There was an error: " + err);
+                    removeSpinner('spinner2');
+                    console.error("Se ha producido un error: " + err);
                 }
             });
         }
@@ -317,7 +324,7 @@
 
     function incluirEjercicio(event) {
         debugger;
-        addSpinner('spinner');
+        addSpinner('spinner2');
 
         var user = event.data.user;
         var idEjercicio = jQuery('#selEjer').val();
@@ -336,7 +343,7 @@
             success: function (response) {
                 debugger;
                 if (!processAjaxActionError(response)) {
-                    removeSpinner('spinner');
+                    removeSpinner('spinner2');
                     var eventData = { data: { user: user } };
                     cargarDatosUsuario(eventData);
                     jQuery('#message').text('Ejercicio incluido con éxito.');
@@ -346,8 +353,8 @@
                 }
             },
             fail: function (err) {
-                removeSpinner('spinner');
-                alert("There was an error: " + err);
+                removeSpinner('spinner2');
+                console.error("Se ha producido un error: " + err);
             }
         });
     }
@@ -355,7 +362,7 @@
     function actualizarSerie(event) {
 
         debugger;
-        addSpinner('spinner');
+        addSpinner('spinner2');
         var user = event.data.user;
         var ejercicio = event.data.ejercicio;
         var inputId = event.data.inputId;
@@ -378,7 +385,7 @@
             success: function (response) {
                 debugger;
                 if (!processAjaxActionError(response)) {
-                    removeSpinner('spinner');
+                    removeSpinner('spinner2');
                     jQuery('#message').text('Serie actualizada con éxito.');
                     setTimeout(() => {
                         jQuery('#message').text('');
@@ -386,48 +393,52 @@
                 }
             },
             fail: function (err) {
-                removeSpinner('spinner');
-                alert("There was an error: " + err);
+                removeSpinner('spinner2');
+                console.error("Se ha producido un error: " + err);
             }
         });
     }
 
     function eliminarEjercicio(event) {
-
-        debugger;
-        addSpinner('spinner');
-        var user = event.data.user;
         var ejercicio = event.data.ejercicio;
-        console.log(user);
-        console.log(ejercicio);
-        const form_data = [];
-        form_data.push({ "name": "security", "value": ajax_nonce });
-        form_data.push({ "name": 'idEjercicio', "value": ejercicio.id_ejercicio });
-        form_data.push({ "name": 'idEntrenamiento', "value": user.id_entrenamiento });
-        form_data.push({ "name": 'idUsuario', "value": user.id_usuario });
-        form_data.push({ "name": 'action', "value": 'action_borrarEjercicio' });
+        if (confirm('¿Está seguro eliminar el ejercicio ' + ejercicio.nombreEjer + '?')) {
+            text = "You pressed OK!";
 
-        jQuery.ajax({
-            url: ajax_url, // Here goes our WordPress AJAX endpoint.
-            type: 'post',
-            data: form_data,
-            success: function (response) {
-                debugger;
-                if (!processAjaxActionError(response)) {
-                    removeSpinner('spinner');
-                    var eventData = { data: { user: user } };
-                    cargarDatosUsuario(eventData);
-                    jQuery('#message').text('Ejercicio eliminado con éxito.');
-                    setTimeout(() => {
-                        jQuery('#message').text('');
-                    }, 2000);
+            debugger;
+            addSpinner('spinner2');
+            var user = event.data.user;
+
+            console.log(user);
+            console.log(ejercicio);
+            const form_data = [];
+            form_data.push({ "name": "security", "value": ajax_nonce });
+            form_data.push({ "name": 'idEjercicio', "value": ejercicio.id_ejercicio });
+            form_data.push({ "name": 'idEntrenamiento', "value": user.id_entrenamiento });
+            form_data.push({ "name": 'idUsuario', "value": user.id_usuario });
+            form_data.push({ "name": 'action', "value": 'action_borrarEjercicio' });
+
+            jQuery.ajax({
+                url: ajax_url, // Here goes our WordPress AJAX endpoint.
+                type: 'post',
+                data: form_data,
+                success: function (response) {
+                    debugger;
+                    if (!processAjaxActionError(response)) {
+                        removeSpinner('spinner2');
+                        var eventData = { data: { user: user } };
+                        cargarDatosUsuario(eventData);
+                        jQuery('#message').text('Ejercicio eliminado con éxito.');
+                        setTimeout(() => {
+                            jQuery('#message').text('');
+                        }, 2000);
+                    }
+                },
+                fail: function (err) {
+                    removeSpinner('spinner2');
+                    console.error("Se ha producido un error: " + err);
                 }
-            },
-            fail: function (err) {
-                removeSpinner('spinner');
-                alert("There was an error: " + err);
-            }
-        });
+            });
+        }
     }
 
     function cargarDatosUsuario(event) {
@@ -463,15 +474,19 @@
     function generateHtmlEntrenamiento(data) {
         var html = '';
         var usuarios = '';
+        debugger;
         if (data.usuarios.length > 0) {
             usuarios = '<table id="tablausuarios" class="table table-striped table-hover tabla-listausuarios">';
+            usuarios += '<tr>';
+            usuarios +=	'<th colspan="7" class="centrado custom-bg-patologias">USUARIOS</th>';
+			usuarios +=	'</tr>';
             usuarios += '<tr>';
             usuarios += '<th class="centrado anchura-col">#</th>';
             usuarios += '<th class="centrado anchura-col">Nombre del usuario</th>';
             usuarios += '<th class="centrado anchura-col">Fecha de inicio</th>';
             usuarios += '<th class="centrado anchura-col">Fecha de fin</th>';
             usuarios += '<th class="centrado anchura-col">Plan</th>';
-            usuarios += '<th class="centrado anchura-col">Edad</th>';
+            usuarios += '<th class="centrado anchura-col">Fecha nacimiento</th>';
             usuarios += '<th class="centrado anchura-col">Acción</th>';
             usuarios += '</tr>';
 
@@ -482,7 +497,7 @@
                 usuarios += '<td class="text-center">' + usuario.fechaInicio + '</td>';
                 usuarios += '<td class="text-center">' + usuario.fechaFin + '</td>';
                 usuarios += '<td class="text-center">' + usuario.plan + '</td>';
-                usuarios += '<td class="text-center">' + usuario.edad + '</td>';
+                usuarios += '<td class="text-center">' + usuario.fecha_nacimiento + '</td>';
                 usuarios += '<td class="col-editar"><div class="btn-container"><button class="btn btn-primary wpforms-submit" id="bt-editar' + index + '">Editar</button></div></td>';
                 usuarios += '</tr>';
             });
@@ -509,7 +524,11 @@
             usuarios += '<button ' + dnext + ' class="btn btn-primary wpforms-submit" id="bt-next">Siguiente</button>'
             usuarios += '</div>';
         } else {
-            usuarios = 'No hay usuarios para mostrar.';
+            if (data.ejercicios.length === 0) {
+                usuarios = 'No hay usuarios para mostrar.';
+            } else {
+                usuarios = 'No hay usuarios para mostrar.';
+            }
         }
 
         html += '<div>' + usuarios + '</div>';
@@ -520,9 +539,9 @@
         var html = '';
         if (data.plan) {
             html = '<div class="fechas">';
-            html += '<p>Plan: ' + data.plan + '</p>';
-            html += '<p>Fecha de inicio del plan: ' + data.fechaInicio + '</p>';
-            html += '<p>Fecha de fin del plan: ' + data.fechaFin + '</p>';
+            html += '<p>Plan: ' + data.plan.plan + '</p>';
+            html += '<p>Fecha de inicio del plan: ' + data.plan.fechaInicio + '</p>';
+            html += '<p>Fecha de fin del plan: ' + data.plan.fechaFin + '</p>';
             html += '<p>Dias restantes: ' + data.diasRestantes + '</p>';
             html += '</div>';
         } else {
@@ -587,7 +606,12 @@
             });
             ejercicios += '</table>';
         } else {
-            ejercicios = 'No hay ejercicios para mostrar.';
+            debugger;
+            if (data.modificado === "1") {
+                ejercicios = 'No hay ejercicios para mostrar. Los ejercicios han sido modificador por el entrenador.';
+            } else {
+                ejercicios = 'No hay ejercicios para mostrar.';
+            }
         }
 
         debugger;

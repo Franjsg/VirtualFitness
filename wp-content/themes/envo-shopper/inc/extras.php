@@ -78,7 +78,7 @@ if (!function_exists('envo_shopper_generate_construct_footer')) :
                     <div class="content-link footer-credits-text text-center">
                         <a href="<?php echo esc_url( get_permalink( 1356 ) ); ?>" style="color: white; font-size: 17px;">Aviso Legal</a>
                         <span class="sep"> | </span>
-                        <a href="<?php echo esc_url( get_permalink( 1370 ) ); ?>" style="color: white; font-size: 17px">Privacidad</a>
+                        <a href="<?php echo esc_url( get_permalink( 3 ) ); ?>" style="color: white; font-size: 17px">Privacidad</a>
                         <span class="sep"> | </span>
                         <a href="<?php echo esc_url( get_permalink( 1372 ) ); ?>" style="color: white; font-size: 17px">Cookies</a>
                     </div>
