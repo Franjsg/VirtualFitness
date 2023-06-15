@@ -1,0 +1,26 @@
+'Administrador'
+User: fran
+Password: fran
+
+'Subscriptor' plan: basico
+User: pablofit@email.com
+Password: pablo123PABLO123
+
+'Subscriptor' plan: Medio
+User: alvarotrancho
+Password: 123
+
+'Suscriptor' plan: Avanzado
+User: carmelosaenz98@gmail.com
+Password: windows11
+
+'Entrenador'
+User: entrenadorjose@email.com
+Password: jose23Sjose456
+
+'Comercial'
+User: comercialluis
+Password: comercial123C
+
+
+
