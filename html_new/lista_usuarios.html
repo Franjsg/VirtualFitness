@@ -69,6 +69,11 @@
         color: white;
     }
 
+    .table.table-striped.table-hover.tabla-patologias th.custom-bg-patologias {
+        background-color: #FF593D;
+        color: white;
+    }
+
     /* Tabla ejercicios */
 
     .table.table-striped.table-hover.tabla-ejercicios {
@@ -551,9 +556,12 @@
         var patologiasUsuario = '';
         if (data.patologiaUsuario.length > 0) {
             patologiasUsuario = '<table id="tablapatologias" class="table table-striped table-hover tabla-patologias">';
+            patologiasUsuario += '<tr>'; 
+            patologiasUsuario += '<th colspan="2" class="centrado custom-bg-patologias">PATOLOGÍAS</th>';
+            patologiasUsuario += '</tr>';
             patologiasUsuario += '<tr>';
             patologiasUsuario += '<th class="centrado">#</th>';
-            patologiasUsuario += '<th class="centrado">Patologías</th>';
+            patologiasUsuario += '<th class="centrado">Nombre de patología/s</th>';
             patologiasUsuario += '</tr>';
 
 

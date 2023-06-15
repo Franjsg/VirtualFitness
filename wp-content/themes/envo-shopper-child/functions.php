@@ -191,7 +191,7 @@ function dcms_list_data($content)
 					echo '<div class="fechas">';
 					echo '<p>Plan actual: ' . $itemsDatosPlanUsuario[0]->plan . '</p>';
 					echo '<p>Fecha inicio del plan: ' . $itemsDatosPlanUsuario[0]->fechaInicio . '</p>';
-					echo '<p>Fecha finalización del plan: ' . $itemsDatosPlanUsuario[0]->fechaFin . '</p>';
+					echo '<p>Fecha fin del plan: ' . $itemsDatosPlanUsuario[0]->fechaFin . '</p>';
 
 					$days = diasRestantes($itemsDatosPlanUsuario[0]->fechaFin);
 					
@@ -1553,7 +1553,7 @@ function action_generatePdf()
 		$html .= '<div><h3>Rutina personalizada para: ' . $current_user->user_nicename . '</h3></div>';
 		$html .= '<div><h3>Plan: ' . $plan[0]->plan . '</h3></div>';
 		$html .= '<div><h3>Fecha inicio del plan: ' . $plan[0]->fechaInicio . '</h3></div>';
-		$html .= '<div><h3>Fecha finalización del plan: ' . $plan[0]->fechaFin . '</h3></div>';
+		$html .= '<div><h3>Fecha final del plan: ' . $plan[0]->fechaFin . '</h3></div>';
 
 		$ejerciciosStr = '';
 		if (count($ejercicios) > 0) {
@@ -1581,7 +1581,7 @@ function action_generatePdf()
 					$serie = $ejer->numeroYRepeticiones;
 				}
 
-				$ejerciciosStr .= '<td>' . $serie . '</td>';
+				$ejerciciosStr .= '<td class="centrar-texto">' . $serie . '</td>';
 				$ejerciciosStr .= '</tr>';
 
 				$index++;

@@ -322,11 +322,19 @@ table.greenTable tfoot .links a{
   width: 60% !important;
 }
 
+#wp-block-search__input-2{
+  width: 60% !important;
+}
+
 #block-2 .wp-element-button:hover{
   background: white !important;
   background-color: white !important;
   color: black  !important;
 }
+
+
+
+
 
 
 
